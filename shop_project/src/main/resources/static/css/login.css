@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #808080; 
+        }
+
+        .login-container {
+            background-color: #FFFFFF; 
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            text-align: center;
+            width: 300px; 
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%; 
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #808080; 
+            border-radius: 4px;
+            color: #000000; 
+            background-color: #FFFFFF; 
+            box-sizing: border-box; 
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #000000; 
+        }
+
+        .login-container label {
+            display: block;
+            margin: 0 auto 10px; 
+            width: calc(100% + 10px);
+            max-width: 50%;
+            color: #000000;
+        }
+
+        .login-container button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #000000; 
+            color: #FFFFFF; 
+            cursor: pointer;
+        }
+
+        .login-container button#loginButton {
+            width: fit-content; 
+            padding: 10px 20px; 
+        }
+
+        .login-container button:hover {
+            background-color: #404040; 
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .options button {
+            background-color: #FFFFFF; 
+            color: #000000; 
+            border: none;
+            margin: 5px 0;
+            cursor: pointer;
+            padding: 0; 
+        }
+
+        .options button:hover {
+            color: #FFFFFF; 
+        }
+		#btnList{
+			display:flex;
+			justify-content: space-between;
+		}
+        .error {
+            color: #FF0000; 
+            margin-top: 10px;
+        }

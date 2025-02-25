@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+.cartTable{
+	width:1510px;
+	border-collapse: collapse;
+	margin-bottom: 40px;
+}
+
+.cartTable th, .cartTable td{
+	font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; 
+}
+
+.checkBox{
+	width: 8px;
+}
+
+#commonPrd{
+	font-size: 12px;
+	border: 1px solid #ddd;
+	background: #f7f7f7;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+}
+#prdInfo{
+	width:700px;
+}
+
+#prdAmount{
+	width:20px;
+}
+.cartTable img{
+    width: 100px;
+    height: auto;
+}
+
+.cartTable .event{
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 1px solid red;
+}
+
+.cartTable .name{
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+}
+
+small{
+	font-size:11px;
+	font-weight: normal;
+}
+
+.cartTable .name .event{
+    color: black;
+    font-weight: bold;
+    padding: 2px 5px;
+    border: 1px solid red;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.cartTable .quantity{
+    width: 35px;
+    height: 13px;
+    padding: 5px;
+    font-size: 11px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none; 
+    margin-top: -6px;
+}
+
+.cartTable .quantity input.quantity {
+    width: 50px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.cartTable .quantity button.update {
+    padding: 5px 10px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cartTable .quantity button.update:hover {
+    background-color: #444;
+}
+.cartTable .price, 
+.cartTable .points, 
+.cartTable .delivery{
+    padding: 10px;
+}
+
+.order{
+	font-size: 11px;
+	background: black;
+	color: white;
+	border:none;
+	padding: 6px 15px;
+	cursor: pointer;
+}
+
+.delete{
+	font-size: 11px;
+	background:white;
+	border: 1px solid #ddd;
+	padding: 5px 25px;
+	cursor: pointer;
+	margin-top: 1px;
+}
+
+.update{
+	float: right;
+	font-size: 11px;
+	background:white;
+	border: 1px solid #ddd;
+	padding: 5px 8px;
+	cursor: pointer;
+	margin-top: 3px;
+}
+
+.orderTable{
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+.orderTable th{
+	font-size: 15px;
+	margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; 
+    border-top: 1px solid black; 
+}
+
+.orderTable td{
+	font-size: 23px;
+    padding: 35px;
+    text-align: center;
+    border-bottom: 1px solid black; 
+}
+
+.totalPrice{
+	width: 200px;
+}
+
+.totalShipping{
+	width:200px;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.shop_final.project.dao.ICommunityDAO">
+ 	<!-- 글작성 -->
+ 	<insert id="insertWrite" parameterType="com.shop_final.project.model.CommunityPostsVO">
+ 		INSERT INTO communityposts (title, detail, img, score, memId, comuCateId, prdNo)
+  		VALUES(#{title},#{detail},#{img},#{score},#{memId},#{comuCateId},#{prdNo})
+ 	</insert>  
+ 	
+ 	<!-- 커뮤니티 글 호출 -->
+  	<select id="wirteList" parameterType="string" resultType="hashmap">
+  		SELECT * FROM communityposts WHERE comuCateId=#{comuCateId} ;
+  	</select>
+  	
+  	<select id="comRead" parameterType="string" resultType="com.shop_final.project.model.CommunityPostsVO">
+  		SELECT * FROM communityposts WHERE postNo=#{postNo} ;
+  	</select>
+ </mapper>

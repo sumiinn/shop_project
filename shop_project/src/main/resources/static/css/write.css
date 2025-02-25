@@ -1,0 +1,134 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display:flex;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar {
+    float: left;
+    width: 20%;
+    margin-right: 5%;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+}
+#containerLeft{
+	width: 25%;
+}
+.content {
+    /* float: left; */
+    width: 75%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: calc(100% - 40px); /* Reduced width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 300px; /* Adjust height as needed */
+}
+
+.bt_wrap {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bt_wrap button {
+    display: inline-block;
+    min-width: 50px; /* Smaller width */
+    padding: 6px 8px; /* Smaller padding */
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 0.8rem; /* Smaller font size */
+    cursor: pointer;
+}
+
+.bt_wrap button.save-btn {
+    background: #000;
+    color: #fff;
+}
+
+.bt_wrap button.cancel-btn {
+    background: #ccc; /* Gray background for cancel button */
+    color: #000;
+}
+
+.bt_wrap button.save-btn:hover {
+    background: #333;
+}
+
+.bt_wrap button.cancel-btn:hover {
+    background: #999; /* Darker gray on hover for cancel button */
+}
+
+.bt_wrap button + button {
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .sidebar, .content {
+        float: none;
+        width: 100%;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+}

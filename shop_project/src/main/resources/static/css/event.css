@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+#wrap{
+	margin: 0 auto;
+	max-width: 80%;
+	padding: 20px;
+}
+section{
+	margin-top:20px;
+}
+
+#wrap header{
+	display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#wrap h3{
+    margin: 0 auto;
+}
+
+#wrap a{
+	text-decoration-line: none;
+	color: black;
+}
+
+#wrap a:hover{
+	text-decoration: underline;
+}
+
+#wrap .eventImg{
+	width: 100%;
+	height: auto;
+}
+
+#wrap .eventBtn{	
+	margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#wrap .btn{
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#wrap .btn:hover{
+	color: gray;
+}
+
+#wrap .btn:active, .btn.selectedItem{
+	color: gray;
+    text-decoration: underline;
+}
+
+#wrap .sort select{
+	float: right;
+    padding: 5px;
+    margin-top: -6px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#wrap #productBox{
+    display: flex;
+    padding: 20px;
+    gap: 20px; 
+    margin-top: 35px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+#wrap #productBox .product{	
+	width: calc(33.333% - 20px); /* 3개씩 나열되도록 설정 */
+    box-sizing: border-box; 
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+#wrap #productBox .product img{
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+}
+
+#wrap #productBox .product div:hover{
+	opacity: 0.9;
+}
+
+#wrap .prdItem p{
+	text-align: left;
+}
+
+#wrap .prdName{
+	font-size: 14px;
+}
+
+#wrap .prdSize{
+	margin-top: 2px;
+	font-size: 13px;
+	color: gray;
+}
+
+#wrap .prdPrice{
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#wrap .event{
+	color: black;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 1px solid red;
+}
+
+#wrap .priceBox {
+    display: flex;
+    align-items: left;
+    margin-top: -15px;
+}
+
+#wrap .prdPriceOrigin {
+    font-size: 13px;
+    color: gray;
+    text-decoration: line-through;
+}
+
+#wrap .prdPriceSale {
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+    margin-right: 50px; 
+}
+

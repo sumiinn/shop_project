@@ -1,0 +1,254 @@
+@charset "UTF-8";
+#wrap>section{
+	margin : 0 auto;
+	margin-top: 3%;
+	width: 80%;
+}
+#deleteBtn{
+	cursor:pointer;
+}
+.prdInfo a{
+	color:black;
+	text-decoration:none;
+	font-size:10px;
+}
+.moreInfoF{
+	height:80%;
+	display:flex;
+	justify-content: flex-start;
+}
+.classificationP{
+	padding-bottom:10px;
+	font-weight: bolder;
+}
+.infoImg{ /* 상세 큰이미지 */
+	width:50%;
+}
+
+.infoBig{
+	width:100%;
+	height:800px;
+}
+
+.infoSmall img{
+	width:100px;
+	height:100px;
+}
+
+.prdInfo{
+	flex-grow:1;
+	padding:50px 50px;
+	
+}
+
+.infoSmall img{
+	cursor:pointer;
+}
+.prdInfo table{
+	width : 100%;
+	height :15%;
+}
+
+.prdInfo th{
+	width : 35%;
+}
+.prdInfo td{
+	width : 100%;
+}
+.prdInfo table{
+	text-align: left;
+}
+
+.colorEx{
+	border:1px solid;
+	border-color:gray;
+	opacity:0.5;
+	cursor:pointer;
+	width : 50px;
+	height: 50px;	
+}
+.prdInfo select{
+	width: 100%;
+	height:30px;
+}
+#numberCheck{
+	height: 20px
+}
+
+#totalPrice{
+	display:flex;
+	justify-content: flex-end;
+	margin-top:50px;
+}
+.visibility{ /* 숨겨주는 클래스 */
+	visibility: hidden;
+	position: absolute;
+	opacity: 0;
+}
+#buttonBar{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 150px;
+}
+.shopBtn{
+	width:45%;
+	font-size: 30px;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor:pointer;
+}
+.reviewTableTr{
+	cursor:pointer;
+	text-align: center;
+}
+#reviewTable{
+	width:100%;
+	border-collapse:collapse;
+	margin: 20px auto;
+	border-bottom: 1px solid ;
+	border-color :#c0c0c0;
+}
+#reviewTable tr:first-child{
+	text-align: center;
+}
+#tableCategory th{
+	border-bottom: 1px solid ;
+	border-color :#c0c0c0;
+	padding :5px;
+}
+#tableCategory th:first-child{
+	width:10%;
+}
+#tableCategory th:nth-child(2){
+	width:60%;
+}
+#tableCategory th:nth-child(3){
+	width:10%;
+}
+#tableCategory th:nth-child(4){
+	width:20%;
+}
+
+#suggestionTable{
+	margin: 30px auto;
+	width:90%;
+	text-align: center;
+}
+#suggestionTable th{
+	padding:5px;
+}
+.suggestion{
+	height:500px;
+	margin:5px 5px;
+}
+.suggestion img{
+	height: 100%;
+}
+.suggestion div:first-child{
+	height:50%;
+}
+.suggestionImage{
+	cursor:pointer;
+	width:100%;
+	height:100%;
+}
+.nameBasket{
+	display: flex;
+	justify-content: space-between;
+	padding:10px;
+}
+.reviewContent img{
+	width:80%;	
+}
+#reviewBox{
+	 Text-Align : Center
+}
+#rollUp{
+	display: flex;
+	justify-content: center; 
+}
+
+
+/*모달 팝업 영역 스타일링*/
+.modal {
+/*팝업 배경*/
+	display:none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	justify-content: center;
+	
+	
+}
+.modal_popup{
+	position:absolute;
+	top:50%; 
+	left:50%;
+    width:800px;  
+    height:500px; 
+    padding: 30px 30px;  
+    text-align: center;
+    background-color: rgb(255,255,255); 
+    border-radius:10px;
+    box-shadow:0 2px 3px 0 rgba(34,36,38,0.15);
+   	transform:translate(-50%, -50%);
+}
+/* 모달 */
+.on {
+    display: block;
+}
+#modalimg{
+	width:45%;
+	margin:0 auto   
+}
+#modalimg img{
+	width:100%;
+	height:500px;
+}
+#infoArea{
+	width:50%;
+}
+
+
+
+.moreInfoF{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+#moreImg{
+	text-align: center;
+	display:flex;
+	flex-direction: column;
+}
+#rollUp{
+	cursor:pointer;
+}
+#moreImg span:first-child{
+	magin-bottom : 20px;
+} 
+/* 추천상품 css */
+#suggestionTable td{
+	width : 18%;
+	height:400px;
+}
+.nameBasket{
+	display: flex;
+	justify-content: space-between;
+	width:100%;
+}
+.suggestionName{
+	overflow: hidden;
+ 	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
+.suggestionCost{
+	width:35%;
+}

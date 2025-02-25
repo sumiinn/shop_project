@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#wrap{
+	margin: 0 auto;
+	max-width: 80%;
+	padding: 20px;
+}
+
+#wrap header {
+	display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#wrap h3 {
+    margin: 0 auto;
+}
+
+#wrap a{
+	text-decoration-line: none;
+	color: black;
+}
+
+#wrap a:hover{
+	text-decoration: underline;
+	color: #525252;
+}
+
+section nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section nav ul li {
+	float: right;
+    margin-right: 10px;
+}
+
+section nav ul li a {
+	font-size: 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+#wrap .cartTabs{
+	border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;    
+}
+
+#wrap #notice{
+	float: right;
+	font-size: 12px;
+	color: gray;
+}
+
+#wrap.btn:hover{
+	 text-decoration: underline;
+}
+
+#wrap #domesticBtn{
+	padding: 15px;
+	background: #fff;
+	cursor: pointer;
+	border: 1px solid #ddd;	
+	border-bottom: none;
+	text-align: center;
+	color: gray;
+	margin-right: 1px;
+	text-decoration: none;
+}
+
+
+#wrap #emptyMsgDom, #emptyMsgOver{
+	text-align: center;
+	font-size: 12px;
+	color: gray;
+}
+
+#wrap .prdOrder{
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#wrap .prdOrder button{
+	width: 130px;
+	padding: 11px;
+    margin: 0;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+}
+
+#wrap #orderAll{
+	background: black;
+	color: white;
+	width: 130px;
+	padding: 11px;
+    margin: 0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#wrap #orderSelected{
+	margin-left: 3px;
+	background: white;
+	color: black;
+	width: 130px;
+	padding: 11px;
+    margin: 0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#wrap #continueShopBtn{
+	width: 130px;
+	padding: 11px;
+    margin-top: -60px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+	float: right;
+}
+
+.amount{
+	display:none;
+}

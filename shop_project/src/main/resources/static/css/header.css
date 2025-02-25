@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+/* menu.css */
+ul{
+	list-style-type: none;
+	padding-left:0;
+}
+a{
+	text-decoration-line:none;
+	color:black;
+}
+#headerBox {
+	display: flex;
+	justify-content: space-between;
+	width : 90%;
+	margin: 0 auto;
+}
+#topMenuLeft{
+	padding-left:0;
+}
+#headMenu{
+	z-index:999;
+}
+#menuLogo{
+	width:80%;
+	margin: 0 auto;
+}
+#menuLogoImg{
+	margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#headerBox li{
+	display :inline;
+	cursor:pointer;
+
+}
+#mainMenuBox{
+	display: flex;
+	justify-content: space-between;
+	width : 80%;
+	margin: 0 auto;
+}
+#mainMenuBox ul{
+	margin: 0 auto;
+}
+#mainMenuBox li{
+	display :inline;
+	cursor:pointer;
+	margin-left:30px;
+	margin-right:30px;
+}
+#menuItem{
+	font-weight: bolder;
+}
+#subMenuBox{
+	border:solid black;
+	border-width: 0px 1px 1px 1px ;
+}
+#subMenuBox{
+	background-color:white;
+	display: flex;
+	justify-content: space-between;
+	width : 60%;
+	left: 50%;
+    transform: translate(-50%, 0);
+	position: fixed;
+	z-index:999;
+	padding:5px 5px;
+	padding-top:0px;
+	
+	
+}
+#subMenuBox ul {
+	margin-left:10px;
+	margin-right:10px;
+}
+#subMenuBox li{
+	padding-top:10px;
+}
+#subMenuBox ul li:first-child{
+	font-weight: 500;
+}
+#subMenuBox ul li:not(:first-of-type) {
+  	font-weight: 250;
+}
+#menuLogoImg{
+	cursor:pointer;
+}
+.headerfixed{
+	position: fixed;
+	left: 0;
+  	top: 0;
+  	width: 100%;
+  	background-color:white;
+  	z-index:99;
+}
+.visibility{ /* 숨겨주는 클래스 */
+	visibility: hidden;
+	position: absolute;
+	opacity: 0;
+	margin: 0 auto;
+}

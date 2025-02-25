@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.shop_final.project.dao.IProductDAO">
+  	<resultMap id="prdResult" type="com.shop_final.project.model.ProductVO" >
+  		<result property="prdNo" column="prdNo"  />
+  		<result property="prdName" column="prdName"  />
+  		<result property="prdPrice" column="prdPrice"  />
+  		<result property="prdImg" column="prdImg"  />
+  		<result property="prdInfoImg" column="prdInfoImg"  />
+  		<result property="prdColor" column="prdColor"  />
+  		<result property="prdSize" column="prdSize"  />
+  		<result property="prdSale" column="prdSale"  />
+  		<result property="mcId" column="mcId"  />
+  		<result property="scId" column="scId"  />
+  	</resultMap>
+  	
+  	<!-- 카테고리 상품 조회 -->
+  	<select id="ctgListProduct" parameterType="string" resultType="hashmap">
+  		SELECT * FROM product WHERE mcId=#{mcId} ORDER BY saleRate;
+  	</select>
+  	
+  	<!-- 서브 카테고리 -->
+  	<select id="subList" parameterType="string" resultType="hashmap">
+  		SELECT * 
+  		FROM prd_sub_category sc 
+  		INNER JOIN prd_main_category mc 
+  		ON  sc.mcId = mc.mcId 
+  		WHERE mc.mcId=#{mcId};
+  	</select>
+  	
+  	<!-- 상품번호 중복체크 -->
+  	<select id="prdNoCheck" parameterType="string" resultType="string">
+  		SELECT prdNo FROM product WHERE prdNo=#{prdNo}
+  	</select>
+  	
+  	<!-- 상품 등록 -->
+  	<insert id="insertProduct" parameterType="com.shop_final.project.model.ProductVO">
+  		INSERT INTO product (prdNo, prdName, prdPrice, prdImg, prdInfoImg, prdColor, prdSize, prdSale, mcId, scId)
+  		VALUES(#{prdNo},#{prdName},#{prdPrice},#{prdImg},#{prdInfoImg},#{prdColor},#{prdSize},#{prdSale},#{mcId},#{scId})
+  	</insert>
+  	
+  	<!-- 상품 정보 상세 출력 -->
+  	<select id="prdInfoView" parameterType="string" resultType="com.shop_final.project.model.ProductVO">
+  		SELECT * 
+  		FROM product prd
+  		INNER JOIN prd_main_category mc
+  		ON prd.mcId = mc.mcId
+  		WHERE prdNo=#{prdNo}
+  	</select>
+  	
+  	<!-- 상품 리뷰 출력 -->
+  	<select id="prdReviewList" parameterType="string" resultType="hashmap">
+  		SELECT * FROM communityposts WHERE prdNo=#{prdNo} ORDER BY score DESC LIMIT 5
+  	</select>
+  	
+  	<!-- 랜덤 상품 출력 -->
+  	<select id="randomPrdList" parameterType="string" resultType="hashmap">
+  		SELECT * FROM product WHERE NOT prdNo=#{prdNo} ORDER BY RAND() LIMIT 5
+  	</select>
+  	
+  	<!-- 상품 내용 변경 -->
+  	<!-- 주의!!! : 기본키인 상품번호는 수정 안 함 -->
+  	<update id="changeProduct">
+  		UPDATE product SET prdName=#{prdName}, prdPrice=#{prdPrice},
+  					   prdSize=#{prdSize}, prdSale=#{prdSale}
+  		WHERE prdNo=#{prdNo}
+  	</update>
+  	
+  	<!-- 상품 삭제 -->
+  	<delete id="productDelete" parameterType="string">
+  		DELETE FROM product WHERE prdNO=#{prdNo}
+  	</delete>
+  	
+  	  	
+  	<!-- 베스트 상품 -->
+  	<select id="bestPrdList" resultType="hashmap">
+  		SELECT * FROM product ORDER BY saleRate DESC LIMIT 5
+  	</select>
+  	
+  	<!-- 새로운 상품 -->
+  	<select id="newPrdList" resultType="hashmap">
+  		SELECT * FROM product ORDER BY RAND() LIMIT 5
+  	</select>
+  </mapper>
+  	

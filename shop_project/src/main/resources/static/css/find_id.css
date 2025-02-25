@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #808080;
+        }
+
+        .find-id-container {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .find-id-container h1 {
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .find-id-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #808080;
+            border-radius: 4px;
+            color: #000000;
+            background-color: #FFFFFF;
+            box-sizing: border-box;
+        }
+
+        .find-id-container button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #000000;
+            color: #FFFFFF;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .find-id-container button:hover {
+            background-color: #404040;
+        }
+
+        .find-id-container a.back-button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            color: #000000;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .find-id-container a.back-button:hover {
+            background-color: #FFFFFF;
+        }
