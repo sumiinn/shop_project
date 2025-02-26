@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.shop_final.project.model.CommunityPostsVO;
+import com.shop_final.project.model.CommunityVO;
 import com.shop_final.project.model.ProductVO;
 import com.shop_final.project.model.SubCategoryVO;
 import com.shop_final.project.service.ProductService;
@@ -98,7 +98,7 @@ public class ProductController {
 	@RequestMapping("/product/productDetailView/{prdNo}")
 	public String prdViewPage(@PathVariable("prdNo") String prdNo,Model model) {
 		ProductVO prd = prdService.prdInfoView(prdNo);
-		ArrayList<CommunityPostsVO> reviewList = prdService.prdReviewList(prdNo);
+		ArrayList<CommunityVO> reviewList = prdService.prdReviewList(prdNo);
 		ArrayList<ProductVO> prdRList = prdService.randomPrdList(prdNo);
 		String[] colorList = prd.getPrdColor().split(",");
 		String[] sizeList = prd.getPrdSize().split(",");

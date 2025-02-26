@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.shop_final.project.dao.IProductDAO;
-import com.shop_final.project.model.CommunityPostsVO;
+import com.shop_final.project.model.CommunityVO;
 import com.shop_final.project.model.ProductVO;
 import com.shop_final.project.model.SubCategoryVO;
 
@@ -46,7 +46,7 @@ public class ProductService implements IProductService {
 	}
 	
 	@Override
-	public ArrayList<CommunityPostsVO> prdReviewList(String prdNo) {
+	public ArrayList<CommunityVO> prdReviewList(String prdNo) {
 		return dao.prdReviewList(prdNo);
 	}
 	

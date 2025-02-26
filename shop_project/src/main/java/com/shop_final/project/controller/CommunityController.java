@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.shop_final.project.model.CommunityPostsVO;
+import com.shop_final.project.model.CommunityVO;
 import com.shop_final.project.service.CommunityService;
 
 import jakarta.servlet.http.HttpSession;
@@ -16,20 +17,26 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class CommunityController {
 	@Autowired
-	CommunityService CommunityService;
+	CommunityService communityService;
 	
-	
-	/* 커뮤니티뷰 */
-	@RequestMapping("/community/communityView")
+	// 커뮤니티 페이지 열기
+	@GetMapping("/community/communityView")
 	public String communityView(Model model) {
-		ArrayList<CommunityPostsVO> notiList =CommunityService.wirteList("1");
-		ArrayList<CommunityPostsVO> reviewList =CommunityService.wirteList("2");
-		ArrayList<CommunityPostsVO> qaList =CommunityService.wirteList("3");
+        ArrayList<CommunityVO> aboutList = communityService.communityWriteList("1");
 		
-		model.addAttribute("notiList", notiList);
-		model.addAttribute("reviewList", reviewList);
-		model.addAttribute("qaList", qaList);
-		return "community/community";
+		model.addAttribute("aboutList", aboutList);
+		
+		return "community/aboutView";
+	}
+	
+	// ABOUT 페이지 열기
+	@GetMapping("/community/noticeView")
+	public String aboutView(Model model) {
+        ArrayList<CommunityVO> noticeList =communityService.communityWriteList("2");
+		
+		model.addAttribute("noticeList", noticeList);
+		
+		return "community/noticeView";
 	}
 	
 	/* 공지글 작성 페이지 뷰 */
@@ -53,14 +60,14 @@ public class CommunityController {
 	}
 	/* 글 작성 */
 	@RequestMapping("/community/insert")
-	public String insertWrite(CommunityPostsVO vo) {
-		CommunityService.insertWrite(vo);
+	public String insertWrite(CommunityVO vo) {
+		communityService.insertWrite(vo);
 		return"redirect:/";
 	}
 	/* 작성글 호출 */
 	@RequestMapping("/community/read/{postNo}")
 	public String communityRead(@PathVariable String postNo,Model model) {
-		CommunityPostsVO postVO=CommunityService.comRead(postNo);
+		CommunityVO postVO=communityService.comRead(postNo);
 		model.addAttribute("postVO", postVO);
 		return"community/read1";
 	}

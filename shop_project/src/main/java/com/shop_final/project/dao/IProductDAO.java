@@ -2,7 +2,7 @@ package com.shop_final.project.dao;
 
 import java.util.ArrayList;
 
-import com.shop_final.project.model.CommunityPostsVO;
+import com.shop_final.project.model.CommunityVO;
 import com.shop_final.project.model.ProductVO;
 import com.shop_final.project.model.SubCategoryVO;
 
@@ -23,7 +23,7 @@ public interface IProductDAO {
 	public ProductVO prdInfoView(String prdNo);
 	
 	// 상품 리뷰 찾기
-	public ArrayList<CommunityPostsVO> prdReviewList(String prdNo);
+	public ArrayList<CommunityVO> prdReviewList(String prdNo);
 	
 	// 랜덤 상품 출력
 	public ArrayList<ProductVO> randomPrdList(String prdNo);

@@ -4,16 +4,16 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class CommunityPostsVO {
+public class CommunityVO {
 	private int postNo;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date CreatedDate;
+	private Date createdDate;
 	private String title;
 	private String detail;
 	private String img;
 	private String score;
 	private String memId;
-	private int comuCateId;
+	private int commCtgId;
 	private String prdNo;
 	
 	public int getPostNo() {
@@ -23,10 +23,10 @@ public class CommunityPostsVO {
 		this.postNo = postNo;
 	}
 	public Date getCreatedDate() {
-		return CreatedDate;
+		return createdDate;
 	}
 	public void setCreatedDate(Date createdDate) {
-		CreatedDate = createdDate;
+		this.createdDate = createdDate;
 	}
 	public String getTitle() {
 		return title;
@@ -58,11 +58,11 @@ public class CommunityPostsVO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public int getComuCateId() {
-		return comuCateId;
+	public int getCommCtgId() {
+		return commCtgId;
 	}
-	public void setComuCateId(int comuCateId) {
-		this.comuCateId = comuCateId;
+	public void setCommCtgId(int commCtgId) {
+		this.commCtgId = commCtgId;
 	}
 	public String getPrdNo() {
 		return prdNo;

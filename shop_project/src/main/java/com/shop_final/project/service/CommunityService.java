@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.shop_final.project.dao.ICommunityDAO;
-import com.shop_final.project.model.CommunityPostsVO;
+import com.shop_final.project.model.CommunityVO;
 
 @Service
 public class CommunityService implements ICommunityService {
@@ -16,16 +16,16 @@ public class CommunityService implements ICommunityService {
 	ICommunityDAO dao;
 	
 	@Override
-	public void insertWrite(CommunityPostsVO vo) {
+	public void insertWrite(CommunityVO vo) {
 		dao.insertWrite(vo);
 	}
 	
 	@Override
-	public ArrayList<CommunityPostsVO> wirteList(String comuCateId) {
-		return dao.wirteList(comuCateId);
+	public ArrayList<CommunityVO> communityWriteList(String comuCateId) {
+		return dao.communityWriteList(comuCateId);
 	}
 	@Override
-	public CommunityPostsVO comRead(String postNo) {
+	public CommunityVO comRead(String postNo) {
 		return dao.comRead(postNo);
 	}
 

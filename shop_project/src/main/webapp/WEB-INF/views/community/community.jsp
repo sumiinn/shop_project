@@ -21,16 +21,15 @@
             <h1>커뮤니티</h1>
             <div class="sidebar">
                 <ul>
-                    <li><a href="#" onclick="showPage('notice')">공지사항</a></li>
-                    <li><a href="#" onclick="showPage('reviewArea')">리뷰</a></li>
-                    <li><a href="#" onclick="showPage('qa')">Q &amp;A</a></li>
+                    <li><a href="#" onclick="showPage('notice')">ABOUT</a></li>
+                    <li><a href="#" onclick="showPage('reviewArea')">NOTICE</a></li>
+                    <li><a href="#" onclick="showPage('qa')">FAQ</a></li>
                 </ul>
             </div>
         </div>
         <div class="content">
             <div id="notice" class="page active">
                 <h2>공지사항</h2>
-                <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
                 <div class="board_list_wrap">
                     <div class="board_list">
                         <div class="top">
@@ -50,17 +49,7 @@
                             </div>
                         </c:forEach>
                     </div>
-                    <div class="board_page">
-                        <a href="#" class="bt first"><<</a>
-                        <a href="#" class="bt prev"><</a>
-                        <a href="#" class="num on">1</a>
-                        <a href="#" class="num">2</a>
-                        <a href="#" class="num">3</a>
-                        <a href="#" class="num">4</a>
-                        <a href="#" class="num">5</a>
-                        <a href="#" class="bt next">></a>
-                        <a href="#" class="bt last">>></a>
-                    </div>
+                    
                     <c:if test="${not empty sessionScope.sid && not empty sessionScope.mid}">
 	                    <div class="bt_wrap">
 	                        <a href="<c:url value='/community/notification/Write'/>" class="on">등록</a>

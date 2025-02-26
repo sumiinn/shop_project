@@ -5,17 +5,17 @@
   
  <mapper namespace="com.shop_final.project.dao.ICommunityDAO">
  	<!-- 글작성 -->
- 	<insert id="insertWrite" parameterType="com.shop_final.project.model.CommunityPostsVO">
- 		INSERT INTO communityposts (title, detail, img, score, memId, comuCateId, prdNo)
-  		VALUES(#{title},#{detail},#{img},#{score},#{memId},#{comuCateId},#{prdNo})
+ 	<insert id="insertWrite" parameterType="com.shop_final.project.model.CommunityVO">
+ 		INSERT INTO comm_posts (title, detail, img, score, memId, commCtgId, prdNo)
+  		VALUES(#{title},#{detail},#{img},#{score},#{memId},#{commCtgId},#{prdNo})
  	</insert>  
  	
  	<!-- 커뮤니티 글 호출 -->
-  	<select id="wirteList" parameterType="string" resultType="hashmap">
-  		SELECT * FROM communityposts WHERE comuCateId=#{comuCateId} ;
+  	<select id="communityWriteList" parameterType="string" resultType="hashmap">
+  		SELECT * FROM comm_posts WHERE commCtgId=#{commCtgId} ;
   	</select>
   	
-  	<select id="comRead" parameterType="string" resultType="com.shop_final.project.model.CommunityPostsVO">
-  		SELECT * FROM communityposts WHERE postNo=#{postNo} ;
+  	<select id="comRead" parameterType="string" resultType="com.shop_final.project.model.CommunityVO">
+  		SELECT * FROM comm_posts WHERE postNo=#{postNo} ;
   	</select>
  </mapper>
