@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="writer">글쓴이</label>
-                    <input type="text" id="writer" name="memId" value="${memId }" required readonly>
+                    <input type="text" id="writer" name="memId" value="${memId}" required readonly>
                 </div>
                 <div class="form-group">
                     <label for="content">내용</label>

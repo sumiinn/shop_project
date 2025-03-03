@@ -4,13 +4,19 @@ import java.util.ArrayList;
 
 import com.shop_final.project.model.CommunityVO;
 
-public interface ICommunityDAO {	
+public interface ICommunityDAO {		
+	// 작성글 리스트 조회
+	public ArrayList<CommunityVO> communityPostList(String comuCateId);
+	
+	// 작성글 상세정보 조회
+	public CommunityVO detailViewPost(String postNo);
+	
 	// 글 작성
-	public void insertWrite(CommunityVO vo);
+	public void insertPost(CommunityVO vo);
 	
-	// 작성글 리스트 불러오기
-	public ArrayList<CommunityVO> communityWriteList(String comuCateId);
+	// 글 수정
+	public void updatePost(CommunityVO vo);
 	
-	// 글 하나 불러오기
-	public CommunityVO comRead(String postNo);
+	// 글 삭제
+	public void deletePost(String postNo);
 }

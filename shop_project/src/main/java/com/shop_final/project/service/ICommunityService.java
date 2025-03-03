@@ -7,13 +7,19 @@ import org.springframework.stereotype.Service;
 import com.shop_final.project.model.CommunityVO;
 
 @Service
-public interface ICommunityService {	
-	// 공지 글 작성
-	public void insertWrite(CommunityVO vo);
+public interface ICommunityService {		
+	// 작성글 리스트 조회
+	public ArrayList<CommunityVO> communityPostList(String comuCateId);
 	
-	// 작성글 리스트 불러오기
-	public ArrayList<CommunityVO> communityWriteList(String comuCateId);
+	// 작성글 상세정보 조회
+	public CommunityVO detailViewPost(String postNo);
 	
-	// 글 하나 불러오기
-	public CommunityVO comRead(String postNo);
+	// 글 작성
+	public void insertPost(CommunityVO vo);
+	
+	// 글 수정
+	public void updatePost(CommunityVO vo);
+	
+	// 글 삭제
+	public void deletePost(String postNo);
 }

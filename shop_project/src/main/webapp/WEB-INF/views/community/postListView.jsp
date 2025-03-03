@@ -38,20 +38,20 @@
                                         <div class="date">작성일</div>
                                         <div class="count">조회</div>
                                     </div>
-                                    <c:forEach var="noti" items="${noticeList}" varStatus="status">
+                                    <c:forEach var="notice" items="${noticeList}" varStatus="status">
                                         <div>
                                            <div class="num">${status.count}</div>
-                                           <div class="title"><a href="<c:url value='/community/read/${noti.postNo}'/>">${noti.title}</a></div>
-                                           <div class="writer">${noti.memId}</div>
-                                           <div class="date"><fmt:formatDate value="${noti.CreatedDate}" pattern="YYYY-MM-dd" /></div>
-                                           <div class="count">${noti.viewCount}</div>
+                                           <div class="title"><a href="<c:url value='/community/detailViewPost/${notice.postNo}'/>">${notice.postTitle}</a></div>
+                                           <div class="writer">${notice.memId}</div>
+                                           <div class="date"><fmt:formatDate value="${notice.createdDate}" pattern="YYYY-MM-dd" /></div>
+                                           <div class="count">${notice.viewCount}</div>
                                         </div>
                                     </c:forEach>
                                 </div>
                     
                                 <c:if test="${not empty sessionScope.sid && not empty sessionScope.mid}">
 	                                <div class="bt_wrap">
-	                                    <a href="<c:url value='/community/notification/Write'/>" class="on">등록</a>
+	                                    <a href="<c:url value='/community/noticePostView'/>" class="on">등록</a>
 	                                </div>
                                 </c:if>
                            </div>

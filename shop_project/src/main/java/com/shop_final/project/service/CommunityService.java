@@ -16,18 +16,27 @@ public class CommunityService implements ICommunityService {
 	ICommunityDAO dao;
 	
 	@Override
-	public void insertWrite(CommunityVO vo) {
-		dao.insertWrite(vo);
+	public ArrayList<CommunityVO> communityPostList(String comuCateId) {
+		return dao.communityPostList(comuCateId);
+	}
+	@Override
+	public CommunityVO detailViewPost(String postNo) {
+		return dao.detailViewPost(postNo);
+	}
+
+	@Override
+	public void insertPost(CommunityVO vo) {
+		dao.insertPost(vo);
 	}
 	
 	@Override
-	public ArrayList<CommunityVO> communityWriteList(String comuCateId) {
-		return dao.communityWriteList(comuCateId);
+	public void updatePost(CommunityVO vo) {
+		dao.updatePost(vo);		
 	}
+	
 	@Override
-	public CommunityVO comRead(String postNo) {
-		return dao.comRead(postNo);
+	public void deletePost(String postNo) {
+		dao.deletePost(postNo);		
 	}
-
 
 }

@@ -37,7 +37,7 @@ h1 {
 .sidebar ul li a {
     text-decoration: none;
     color: #000;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -83,7 +83,7 @@ h2 {
     display: inline-block;
     padding: 10px 0;
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .board_list > div.top > div {

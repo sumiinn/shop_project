@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.aboutImg{
+	width: 100%;
+	margin: 0 auto;
+	animation: fadein 3.2s;
+	-webkit-animation: fadein 3.2s;
+	display: flex;
+	justify-content: center;
+	margin-top: 2%;
+}
+
+.aboutImg img{
+	width: 57%;
+	height: auto;
+	
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { 
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.aboutContent{
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+	font-size: 14px;
+	color: #7c7c7c;
+}

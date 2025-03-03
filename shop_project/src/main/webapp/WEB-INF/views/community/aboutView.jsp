@@ -9,6 +9,7 @@
 		<!-- head.jsp import -->
 		<c:import url = "/WEB-INF/views/layout/head.jsp"></c:import>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/community.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/comm_about.css'/>">
 	</head>
 	<body>
 		<div id="wrap">
@@ -25,10 +26,13 @@
                            </ul>
                        </div>
                     </div>
-                    <div class="content">
+                    <div class="content">                      
                         <div class="aboutImg">
                             <img src="<c:url value='/project_images/community/aboutNonmajor.jpg'/>">
                         </div>
+                        <div class="aboutContent">
+                            ${aboutList.postDetail}
+                        </div>                      
                    </div>
                </div>
 			<!-- bottom.jsp import -->

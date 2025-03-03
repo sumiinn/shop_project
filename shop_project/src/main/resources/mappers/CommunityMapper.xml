@@ -3,19 +3,37 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
- <mapper namespace="com.shop_final.project.dao.ICommunityDAO">
- 	<!-- 글작성 -->
- 	<insert id="insertWrite" parameterType="com.shop_final.project.model.CommunityVO">
- 		INSERT INTO comm_posts (title, detail, img, score, memId, commCtgId, prdNo)
-  		VALUES(#{title},#{detail},#{img},#{score},#{memId},#{commCtgId},#{prdNo})
- 	</insert>  
- 	
- 	<!-- 커뮤니티 글 호출 -->
-  	<select id="communityWriteList" parameterType="string" resultType="hashmap">
-  		SELECT * FROM comm_posts WHERE commCtgId=#{commCtgId} ;
+ <mapper namespace="com.shop_final.project.dao.ICommunityDAO"> 	
+ 	<!-- 커뮤니티 글 리스트 조회 -->
+  	<select id="communityPostList" parameterType="string" resultType="hashmap">
+  		SELECT * FROM comm_posts WHERE commCtgId=#{commCtgId}
   	</select>
   	
-  	<select id="comRead" parameterType="string" resultType="com.shop_final.project.model.CommunityVO">
-  		SELECT * FROM comm_posts WHERE postNo=#{postNo} ;
+  	<!-- 상세 글 조회 -->
+  	<select id="detailViewPost" parameterType="string" resultType="com.shop_final.project.model.CommunityVO">
+  		SELECT * FROM comm_posts WHERE postNo=#{postNo} 
   	</select>
+  	
+  	<!-- 글 작성 -->
+ 	<insert id="insertPost" parameterType="com.shop_final.project.model.CommunityVO">
+ 		INSERT INTO comm_posts (postTitle, postDetail, postImg, score, memId, commCtgId, prdNo)
+  		VALUES(#{postTitle},#{postDetail},#{postImg},#{score},#{memId},#{commCtgId},#{prdNo})
+ 	</insert>  
+ 	
+ 	<!-- 글 수정 -->
+ 	<update id="updatePost" parameterType="com.shop_final.project.model.CommunityVO">
+ 	    UPDATE comm_posts 
+ 	    SET postTitle = #{postTitle}, 
+ 	        postDetail = #{postDetail}, 
+ 	        postImg = CASE
+ 	                      WHEN #{postImg} IS NOT NULL THEN #{postImg}
+ 	                      ELSE postImg
+ 	                  END
+ 	    WHERE postNo = #{postNo}
+ 	</update>
+ 	
+ 	<!-- 글 삭제 -->
+ 	<delete id="deletePost" parameterType="string">
+ 	    DELETE FROM comm_posts WHERE postNo=#{postNo}
+ 	</delete>
  </mapper>

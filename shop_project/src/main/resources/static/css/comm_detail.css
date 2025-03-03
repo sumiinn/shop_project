@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;    
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display:flex;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.sidebar {
+    float: left;
+    width: 20%;
+    margin-right: 5%;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.content {
+    white-space: pre-line;
+    width: 75%;
+}
+
+.content h4,
+.content p,
+.content #postDetail {
+    margin: 0;  /* 모든 마진 제거 */
+    padding: 0; /* 필요하면 패딩도 제거 */
+}
+
+.content p {
+	color: #b6b6b6;
+	border-bottom: 1px solid #b6b6b6;
+	padding-bottom: 1%;
+}
+
+.content #postDetail {
+	font-size: 14px;
+	border-bottom: 1px solid #b6b6b6;
+	padding-bottom: 3%;
+}
+
+#containerLeft {
+	width:25%;
+}
+
+#postButton {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	justify-content: space-between;
+}
+
+#postListBtn {
+	background: black;
+	color: white;
+	width: 80px;
+	padding: 8px;
+    margin: 0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#postUpdateBtn {
+	background: white;
+	color: black;
+	width: 80px;
+	padding: 8px;
+    margin: 0;
+    border: 1px solid #bdbdbd;
+    cursor: pointer;
+}
+
+#postDeleteBtn {
+	background: white;
+	color: black;
+	width: 80px;
+	padding: 8px;
+    margin: 0;
+    border: 1px solid #bdbdbd;
+    cursor: pointer;
+}
+
+#postButton button:first-child {
+  margin-right: auto;
+}
+
+#postButton button:nth-child(n+2) {
+  margin-left: 1%; 
+}

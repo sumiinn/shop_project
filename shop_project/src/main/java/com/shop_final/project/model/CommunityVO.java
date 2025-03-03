@@ -8,9 +8,9 @@ public class CommunityVO {
 	private int postNo;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdDate;
-	private String title;
-	private String detail;
-	private String img;
+	private String postTitle;
+	private String postDetail;
+	private String postImg;
 	private String score;
 	private String memId;
 	private int commCtgId;
@@ -28,23 +28,23 @@ public class CommunityVO {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	public String getTitle() {
-		return title;
+	public String getPostTitle() {
+		return postTitle;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPostTitle(String postTitle) {
+		this.postTitle = postTitle;
 	}
-	public String getDetail() {
-		return detail;
+	public String getPostDetail() {
+		return postDetail;
 	}
-	public void setDetail(String detail) {
-		this.detail = detail;
+	public void setPostDetail(String postDetail) {
+		this.postDetail = postDetail;
 	}
-	public String getImg() {
-		return img;
+	public String getPostImg() {
+		return postImg;
 	}
-	public void setImg(String img) {
-		this.img = img;
+	public void setPostImg(String postImg) {
+		this.postImg = postImg;
 	}
 	public String getScore() {
 		return score;
