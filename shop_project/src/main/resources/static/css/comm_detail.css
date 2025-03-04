@@ -55,15 +55,24 @@ h1 {
 }
 
 .content p {
-	color: #b6b6b6;
+	color: #a7a7a7;
 	border-bottom: 1px solid #b6b6b6;
 	padding-bottom: 1%;
+	font-size: 13px;
 }
 
 .content #postDetail {
 	font-size: 14px;
 	border-bottom: 1px solid #b6b6b6;
 	padding-bottom: 3%;
+	margin-top: -2%;
+}
+
+#postDetail img {
+	width: 50%;
+	height: auto;
+	margin-bottom: -1%;
+	margin-top: -5%;
 }
 
 #containerLeft {
@@ -113,4 +122,19 @@ h1 {
 
 #postButton button:nth-child(n+2) {
   margin-left: 1%; 
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .sidebar, .content {
+        float: none;
+        width: 100%;
+    }
+
+    .content {
+        padding-left: 0;
+    }
 }

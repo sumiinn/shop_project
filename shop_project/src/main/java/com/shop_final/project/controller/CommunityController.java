@@ -71,7 +71,7 @@ public class CommunityController {
 			e.printStackTrace();
 		}
 
-		return "redirect:/community/postListView";
+		return "redirect:/community/noticeView";
 	}
 	
 	// 상세 글 조회
@@ -128,6 +128,14 @@ public class CommunityController {
 		communityService.deletePost(postNo);
 		
 		return "redirect:/community/noticeView";
+	}
+	
+	// 리뷰 페이지 열기
+	@GetMapping("/community/reviewView")
+	public String reviewView(Model model) {
+		model.addAttribute("reviewList", communityService.communityPostList("4"));
+		
+		return "community/reviewView";
 	}
 	
 	// 파일 저장

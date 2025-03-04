@@ -128,13 +128,13 @@
 								<c:forEach items="${reviewList }" var="review" varStatus="status">
 									<tr class="reviewTableTr">
 										<td>${status.count}</td>
-										<td>${review.title }</td>
+										<td>${review.postTitle }</td>
 										<td>${review.memId }</td>
 										<td class="reviewScore" data-score="${review.score }"> </td>
 									</tr>
 									<tr class="reviewContent visibility">
-										<td colspan='3'>${review.detail }</td>
-										<td><img src="<c:url value='/project_images/review/${review.img.split(",")[0]}'/>"></td>
+										<td colspan='3'>${review.postDetail }</td>
+										<td><img src="<c:url value='/project_images/review/${review.postImg.split(",")[0]}'/>"></td>
 									</tr>
 								</c:forEach>
 							</table>

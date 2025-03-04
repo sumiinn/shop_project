@@ -69,6 +69,8 @@ h2 {
 .board_list > div {
     border-bottom: 1px solid #ddd;
     font-size: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .board_list > div.top {
@@ -87,7 +89,7 @@ h2 {
 }
 
 .board_list > div.top > div {
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .board_list .num {
@@ -97,23 +99,20 @@ h2 {
 .board_list .title {
     width: 60%;
     text-align: left;
+    margin-left: -16%;
 }
 
 .board_list .title a {
-    color: #000;
+    color: #505050;
     text-decoration: none;
 }
 
-.board_list .writer {
-    width: 10%;
-}
-
 .board_list .date {
-    width: 10%;
+    width: 10%;  
 }
 
-.board_list .count {
-    width: 10%;
+#notice_content {
+	color: #505050;
 }
 
 .board_page {

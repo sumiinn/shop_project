@@ -6,7 +6,11 @@
  <mapper namespace="com.shop_final.project.dao.ICommunityDAO"> 	
  	<!-- 커뮤니티 글 리스트 조회 -->
   	<select id="communityPostList" parameterType="string" resultType="hashmap">
-  		SELECT * FROM comm_posts WHERE commCtgId=#{commCtgId}
+  		SELECT cp.*, p.prdInfoImg, p.mcId, p.prdName
+  		FROM comm_posts cp 
+  		LEFT JOIN product p ON cp.prdNo = p.prdNo
+  		WHERE cp.commCtgId=#{commCtgId}
+  		ORDER BY cp.createdDate DESC;
   	</select>
   	
   	<!-- 상세 글 조회 -->

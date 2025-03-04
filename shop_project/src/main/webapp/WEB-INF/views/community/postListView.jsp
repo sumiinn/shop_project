@@ -23,6 +23,7 @@
                                <li><a href="<c:url value='/community/communityView'/>">ABOUT</a></li>
                                <li><a href="<c:url value='/community/noticeView'/>">NOTICE</a></li>
                                <li><a href="#">FAQ</a></li>
+                               <li><a href="<c:url value='/community/reviewView'/>">REVIEW</a></li>
                            </ul>
                        </div>
                     </div>
@@ -32,19 +33,15 @@
                             <div class="board_list_wrap">
                                 <div class="board_list">
                                     <div class="top">
-                                        <div class="num">번호</div>
-                                        <div class="title">제목</div>
-                                        <div class="writer">글쓴이</div>
-                                        <div class="date">작성일</div>
-                                        <div class="count">조회</div>
+                                        <div class="num">NO</div>
+                                        <div class="title_top">SUBJECT</div>                                        
+                                        <div class="date">DATE</div>                                                                      
                                     </div>
                                     <c:forEach var="notice" items="${noticeList}" varStatus="status">
-                                        <div>
+                                        <div id="notice_content">
                                            <div class="num">${status.count}</div>
-                                           <div class="title"><a href="<c:url value='/community/detailViewPost/${notice.postNo}'/>">${notice.postTitle}</a></div>
-                                           <div class="writer">${notice.memId}</div>
-                                           <div class="date"><fmt:formatDate value="${notice.createdDate}" pattern="YYYY-MM-dd" /></div>
-                                           <div class="count">${notice.viewCount}</div>
+                                           <div class="title"><a href="<c:url value='/community/detailViewPost/${notice.postNo}'/>">${notice.postTitle}</a></div>                                           
+                                           <div class="date"><fmt:formatDate value="${notice.createdDate}" pattern="YYYY-MM-dd" /></div>                                          
                                         </div>
                                     </c:forEach>
                                 </div>

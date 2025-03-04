@@ -22,6 +22,7 @@
                             <li><a href="<c:url value='/community/communityView'/>">ABOUT</a></li>
                             <li><a href="<c:url value='/community/noticeView'/>">NOTICE</a></li>
                             <li><a href="#">FAQ</a></li>
+                            <li><a href="<c:url value='/community/reviewView'/>">REVIEW</a></li>
                         </ul>
                      </div>
                  </div>

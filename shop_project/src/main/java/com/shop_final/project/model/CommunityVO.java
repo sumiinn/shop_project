@@ -16,6 +16,29 @@ public class CommunityVO {
 	private int commCtgId;
 	private String prdNo;
 	
+	// DB에는 없지만 Mapper로 받아올 것
+	private String prdInfoImg;
+	private String prdName;	
+	private String mcId;
+	
+	public String getPrdName() {
+		return prdName;
+	}
+	public void setPrdName(String prdName) {
+		this.prdName = prdName;
+	}
+	public String getMcId() {
+		return mcId;
+	}
+	public void setMcId(String mcId) {
+		this.mcId = mcId;
+	}
+	public String getPrdInfoImg() {
+		return prdInfoImg;
+	}
+	public void setPrdInfoImg(String prdInfoImg) {
+		this.prdInfoImg = prdInfoImg;
+	}
 	public int getPostNo() {
 		return postNo;
 	}

@@ -23,6 +23,7 @@
                             <li><a href="<c:url value='/community/communityView'/>">ABOUT</a></li>
                             <li><a href="<c:url value='/community/noticeView'/>">NOTICE</a></li>
                             <li><a href="#">FAQ</a></li>
+                            <li><a href="<c:url value='/community/reviewView'/>">REVIEW</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,8 +35,7 @@
                             <c:forEach var="img" items="${fn:split(post.postImg, ',')}">
                                 <img src="<c:url value='/project_images/upload/${img}'/>">  
                             </c:forEach>
-                        </c:if>                                                                      
-                        ${post.postDetail}
+                        </c:if>${post.postDetail}
                     </div>
                     <div id="postButton">
                         <button id="postListBtn" onclick="location.href='<c:url value='/community/noticeView'/>'">목록</button> 
