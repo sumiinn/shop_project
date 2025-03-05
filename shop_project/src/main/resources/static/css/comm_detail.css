@@ -54,16 +54,23 @@ h1 {
     padding: 0; /* 필요하면 패딩도 제거 */
 }
 
+.content h3{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	color: #6e6e6e;
+}
+
 .content p {
 	color: #a7a7a7;
-	border-bottom: 1px solid #b6b6b6;
+	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 1%;
 	font-size: 13px;
 }
 
 .content #postDetail {
 	font-size: 14px;
-	border-bottom: 1px solid #b6b6b6;
+	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 3%;
 	margin-top: -2%;
 }
@@ -122,6 +129,34 @@ h1 {
 
 #postButton button:nth-child(n+2) {
   margin-left: 1%; 
+}
+
+#prdInfo {
+	display: flex;
+	border: 1px solid #e4e4e4;
+	padding: 2%;
+}
+
+#prdInfo img {
+	width: 12%;
+	height: auto;
+	cursor: pointer;
+}
+
+#prdTitle {
+    margin-left: 2%;
+    font-size: 13px;	
+}
+
+#prdTitle button {
+	background: white;
+	color: black;
+	width: 100px;
+	padding: 7px;
+    margin: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 12px;
 }
 
 @media (max-width: 768px) {

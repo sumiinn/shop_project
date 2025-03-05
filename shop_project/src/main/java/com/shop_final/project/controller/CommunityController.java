@@ -135,7 +135,17 @@ public class CommunityController {
 	public String reviewView(Model model) {
 		model.addAttribute("reviewList", communityService.communityPostList("4"));
 		
-		return "community/reviewView";
+		return "community/reviewListView";
+	}
+	
+	// 상세 리뷰 페이지
+	@GetMapping("/community/detailViewReview/{postNo}")
+	public String detailViewReview(@PathVariable String postNo, Model model) {
+		CommunityVO review = communityService.detailViewPost(postNo);
+		
+		model.addAttribute("review", review);
+		
+		return "community/reviewDetailView";
 	}
 	
 	// 파일 저장

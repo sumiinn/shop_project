@@ -42,8 +42,14 @@
                         <c:forEach var="review" items="${reviewList}" varStatus="status">
                             <tr>
                                 <td class="num_td">${reviewList.size() - status.index}</td>
-                                <td class="img_td"><img src="<c:url value='/project_images/product/${review.mcId}/${review.prdInfoImg}'/>"></td>
-                                <td class="subject_td">${review.prdName}<br>${review.postTitle}</td>
+                                <td class="img_td">
+                                    <a href="/product/productDetailView/${review.prdNo}">
+                                        <img src="<c:url value='/project_images/product/${review.mcId}/${review.prdInfoImg}'/>">
+                                    </a>                               
+                                </td>
+                                <td class="subject_td">${review.prdName}<br>
+                                    <a href="<c:url value='/community/detailViewReview/${review.postNo}'/>" class="title_td">${review.postTitle}</a>
+                                </td>
                                 <td class="writer_td">${review.memId}</td>
                                 <td class="date_td"><fmt:formatDate value="${review.createdDate}" pattern="YYYY-MM-dd" /></td>
                             </tr>

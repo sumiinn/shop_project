@@ -20,7 +20,14 @@ public class CommunityVO {
 	private String prdInfoImg;
 	private String prdName;	
 	private String mcId;
+	private int prdPrice;
 	
+	public int getPrdPrice() {
+		return prdPrice;
+	}
+	public void setPrdPrice(int prdPrice) {
+		this.prdPrice = prdPrice;
+	}
 	public String getPrdName() {
 		return prdName;
 	}

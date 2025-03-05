@@ -28,6 +28,7 @@
                     </div>
                 </div>
                 <div class = "content">
+                    <h3>NOTICE</h3>
                     <h4>${post.postTitle}</h4>
                     <p>${post.memId}</p>
                     <div id="postDetail">
