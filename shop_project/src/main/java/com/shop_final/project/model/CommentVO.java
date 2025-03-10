@@ -8,7 +8,7 @@ public class CommentVO {
 	private int commentNo;
 	private String content;
 	private String memId;
-	private int postNo;
+	private String postNo;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdDate;
 	
@@ -30,10 +30,10 @@ public class CommentVO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public int getPostNo() {
+	public String getPostNo() {
 		return postNo;
 	}
-	public void setPostNo(int postNo) {
+	public void setPostNo(String postNo) {
 		this.postNo = postNo;
 	}
 	public Date getCreatedDate() {

@@ -10,12 +10,15 @@
 		<title>REVIEW</title>
 		<!-- head.jsp import -->
 		<c:import url = "/WEB-INF/views/layout/head.jsp"></c:import>
+		<script src="<c:url value='/js/comment.js'/>"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/comm_detail.css'/>">
 	</head>
 	<body>
 		<div id="wrap">
 			<!-- top.jsp import -->
 			<c:import url = "/WEB-INF/views/layout/top.jsp"></c:import>
+			<input type="hidden" name="sid" value="${sessionScope.sid}">
+			<input type="hidden" name="postNo" value="${review.postNo}">
 			<div class="container">
                 <div id="containerLeft">
                     <h1>COMMUNITY</h1>
@@ -59,24 +62,31 @@
                         </c:if>    
                     </div>   
                     
-                    <!-- 댓글 -->           
+                    <!-- 댓글 -->     
+                    
+                    <!-- 댓글 출력 공간 -->
+                    <div id="commentList">                   
+                    </div>        
+                    
+                    <!-- 댓글 입력 공간 -->
                     <c:choose>
                         <c:when test="${not empty sessionScope.sid}">
                             <form id="commentForm">
-                                <input type="hidden" name="memId" value="${sessionScope.sid}">
-                                <input type="hidden" name="postNo" value="${review.postNo}">
-                                <textarea id="commentContent" name="content" placeholder="댓글을 입력해주세요." required></textarea>
-                                <button id="contentBtn">등록</button>
+                                <div id="commentBox">                                  
+                                   회원명 <input type="text" id="commentName" name="memId" value="${sessionScope.sid}" readonly>
+                                   <input type="hidden" name="postNo" value="${review.postNo}">
+                                   <div id="insertComment">
+                                     <textarea id="commentContent" name="content" placeholder="댓글을 입력해주세요." required></textarea>
+                                     <button id="contentBtn" onclick="insertComment()">등록</button>
+                                   </div>
+                                </div>
                             </form>
                         </c:when>
                         <c:otherwise>
                             <div>회원에게만 댓글 작성 권한이 있습니다.</div>
                         </c:otherwise>
                     </c:choose>	 
-                    
-                    <!-- 댓글 출력 공간 -->
-                    <div id="commentList">                   
-                    </div>              
+                                
                 </div>
             </div>
 			<!-- bottom.jsp import -->

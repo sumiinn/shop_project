@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.shop_final.project.dao.ICommentDAO">
+    <resultMap id="commentResult" type="com.shop_final.project.model.CommentVO" >
+  		<result property="commentNo" column="commentNo"  />
+  		<result property="content" column="content"  />
+  		<result property="memId" column="memId"  />
+  		<result property="postNo" column="postNo"  />  		
+  		<result property="createdDate" column="createdDate"  />
+  	</resultMap>
+  	
+  	<insert id="insertComment" parameterType="com.shop_final.project.model.CommentVO">
+  	    INSERT INTO comments (content, memId, postNo, createdDate)
+  	    VALUES (#{content}, #{memId}, #{postNo}, NOW())
+  	</insert>
+  	
+  	<select id="loadComment" parameterType="string" resultMap="commentResult">
+  	    SELECT * FROM comments
+  	    WHERE postNo = #{postNo}
+  	    ORDER BY createdDate DESC
+  	</select>
+  </mapper>
