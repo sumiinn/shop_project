@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class CommentController {
 	
 	@PostMapping("/comment/insertComment")
 	@ResponseBody
-	public Map<String, Object> insertComment(@RequestParam String postNo,
+	public Map<String, Object> insertComment(@RequestParam int postNo,
 			                                 @RequestParam String content,
 			                                 @RequestParam String memId){
 		CommentVO vo = new CommentVO();
@@ -46,8 +47,49 @@ public class CommentController {
 	
 	@GetMapping("/comment/loadComment/{postNo}")
 	@ResponseBody
-	public ArrayList<CommentVO> getComment(@PathVariable String postNo){
+	public ArrayList<CommentVO> getComment(@PathVariable int postNo){
 		return commentService.loadComment(postNo);
+	}
+	
+	@PostMapping("/comment/updateComment")
+	@ResponseBody
+	public Map<String, Object> updateComment(@RequestParam int commentNo,		 
+			                                 @RequestParam String content) {
+		CommentVO vo = new CommentVO();
+		
+		vo.setCommentNo(commentNo);
+		vo.setContent(content);
+		
+		Map<String, Object> response = new HashMap<>();
+		
+		boolean updateSuccess = commentService.updateComment(vo);
+		
+		if(updateSuccess) {
+			response.put("status", "success");
+		}else {
+			response.put("status", "fail");
+		}
+		
+		return response;
+	}
+	
+	@DeleteMapping("/comment/deleteComment")
+	@ResponseBody
+	public Map<String, Object> deleteComment(@RequestParam int commentNo){
+		CommentVO vo = new CommentVO();
+		
+		vo.setCommentNo(commentNo);
+		
+		Map<String, Object> response = new HashMap<>();		
+		boolean deleteSuccess = commentService.deleteComment(commentNo);
+		
+		if(deleteSuccess) {
+			response.put("status", "success");
+		}else {
+			response.put("status", "fail");
+		}
+		
+		return response;
 	}
 
 }

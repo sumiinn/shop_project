@@ -23,8 +23,22 @@ public class CommentService implements ICommentService {
 	}
 
 	@Override
-	public ArrayList<CommentVO> loadComment(String postNo) {
+	public ArrayList<CommentVO> loadComment(int postNo) {
 		return dao.loadComment(postNo);
+	}
+
+	@Override
+	public boolean updateComment(CommentVO vo) {
+		boolean result = dao.updateComment(vo);
+		
+		return result;
+	}
+
+	@Override
+	public boolean deleteComment(int commentNo) {
+		boolean result = dao.deleteComment(commentNo);
+		
+		return result;
 	}
 
 }

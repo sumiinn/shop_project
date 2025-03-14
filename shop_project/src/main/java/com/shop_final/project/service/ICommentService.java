@@ -9,6 +9,11 @@ public interface ICommentService {
 	public boolean insertComment(CommentVO vo);
 	
 	// 댓글 조회
-	public ArrayList<CommentVO> loadComment(String postNo);
+	public ArrayList<CommentVO> loadComment(int postNo);
 
+	// 댓글 수정
+	public boolean updateComment(CommentVO vo);
+	
+	// 댓글 삭제
+	public boolean deleteComment(int commentNo);
 }

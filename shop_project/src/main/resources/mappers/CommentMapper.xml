@@ -12,14 +12,28 @@
   		<result property="createdDate" column="createdDate"  />
   	</resultMap>
   	
+  	<!-- 댓글 등록 -->
   	<insert id="insertComment" parameterType="com.shop_final.project.model.CommentVO">
   	    INSERT INTO comments (content, memId, postNo, createdDate)
   	    VALUES (#{content}, #{memId}, #{postNo}, NOW())
   	</insert>
   	
-  	<select id="loadComment" parameterType="string" resultMap="commentResult">
+  	<!-- 댓글 불러오기 -->
+  	<select id="loadComment" parameterType="java.lang.Integer" resultMap="commentResult">
   	    SELECT * FROM comments
   	    WHERE postNo = #{postNo}
-  	    ORDER BY createdDate DESC
   	</select>
+  	
+  	<!-- 댓글 수정 -->
+  	<update id="updateComment" parameterType="com.shop_final.project.model.CommentVO">
+  	    UPDATE comments
+  	    SET content = #{content}, createdDate = NOW()
+  	    WHERE commentNo = #{commentNo}
+  	</update>
+  	
+  	<!-- 댓글 삭제 -->
+  	<delete id="deleteComment" parameterType="java.lang.Integer">
+  	    DELETE FROM comments
+  	    WHERE commentNo = #{commentNo}
+  	</delete>
   </mapper>
