@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/orderForm.css}">
+    <script th:src="@{http://dmaps.daum.net/map_js_init/postcode.v2.js}"></script>
+    <script th:src="@{/js/searchZip.js}"></script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        
+        <section>
+			<form method="post" th:action="@{/orderComplete}">
+				<h3>주문하시는 분</h3>
+				<table class="ordInfoTable" width="800">
+					<tr>
+						<th>주문자</th>
+						<td width="200" th:text="${memVo.memName}"></td>
+						<input type="hidden" name="memId" th:value="${memVo.memId}">
+						<th>연락처</th>
+						<td th:text="${hp1} + '-' + ${hp2} + '-' + ${hp3}"></td>
+					</tr>
+				</table>
+				<br>
+
+				<h3>받으시는 분</h3>
+				<table class="ordInfoTable" width="800">
+					<tr>
+						<th>수령인</th>
+						<td width="200"><input type="text" id="ordRcvReceiver"
+							name="ordRcvReceiver" th:value="${memVo.memName}"></td>
+						<th>연락처</th>
+						<td><input type="text" name="hp1" th:value="${hp1}" size="3">
+							- <input type="text" name="hp2" th:value="${hp2}" size="4">
+							- <input type="text" name="hp3" th:value="${hp3}" size="4">
+						</td>
+					</tr>
+					<tr>
+						<th>배송지 주소</th>
+						<td colspan="3">
+						    <input type="text" id="ordRcvZipcode" name="ordRcvZipcode" size="5" th:value="${memVo.memZipcode}">
+							<input type="button" id="searchZipBtn" name="searchZipBtn" value="우편번호 찾기"><br> 
+							<input type="text" id="ordRcvAddress1" name="ordRcvAddress1" placeholder="주소 입력" size="70" th:value="${memVo.memAddress1}"><br> 
+							<input type="text" id="ordRcvAddress2" name="ordRcvAddress2" placeholder="상세 주소 입력" size="70" th:value="${memVo.memAddress2}">
+						</td>
+					</tr>
+					<tr>
+						<th>배송 메시지</th>
+						<td colspan="3">
+						    <select name="ordRcvMsg">
+								<option value="배송 전 전화주세요">배송 전 전화주세요</option>
+								<option value="부재시 경비실에 맡겨주세요">부재시 경비실에 맡겨주세요</option>
+								<option value="부재시 문앞에 놓고 가세요">부재시 문앞에 놓고 가세요</option>
+						    </select>
+						</td>
+					</tr>
+				</table>
+				<br>
+
+				<h3>주문 상품 목록</h3>
+				<table class="orderProductTable" width="800">
+					<tr>
+						<th>이미지</th>
+						<th id="prdInfo">상품정보</th>
+						<th id="prdAmount">수량</th>
+						<th>상품구매금액</th>
+						<th>적립금</th>
+						<th>배송구분</th>
+					</tr>
+					<tr th:each="prd : ${cartList}">
+						<td><img th:src="@{/project_images/product/{mcId}/{img}(mcId=${prd.mcId}, img=${prd.prdInfoImg})}" /></td>
+						<td class="name"><a href="#" th:text="${prd.prdName}"></a><br>
+							<small>[색상: <span th:text="${prd.cartColor}"></span> / 사이즈: <span th:text="${prd.cartSize}"></span>]</small>
+						</td>
+						<td class="quantityWrap">
+						    <input type="text" th:value="${prd.cartQty}" class="quantity" readonly>
+						</td>
+						<td class="price" th:text="${#numbers.formatInteger(prd.prdPrice * prd.cartQty, 3, 'COMMA')} + ' 원'"></td>
+						<td class="points" th:text="${#numbers.formatInteger(prd.prdPrice * prd.cartQty * 0.01, 3, 'COMMA')} + ' 원'"></td>
+						<td class="shipping">기본배송<br>2,500원
+						</td>
+					</tr>
+				</table>
+				
+				
+				<th:block th:with="totalShipping=2500">
+				
+				<th:block th:each="prd : ${cartList}" th:with="amount=${prd.prdPrice} * ${prd.cartQty}, totalPrice=${totalPrice} + ${amount}">
+				    <span class="amount" th:data-amount="${amount}"></span>
+				</th:block>
+                
+				<div class="container">
+					<div class="left">
+						<h3>결제 정보</h3>
+						<table class="orderTable2" width="800">
+							<tbody>
+								<tr>
+									<td id="tableId">상품 합계 금액</td>
+									<td class="totalPrice">
+									    <span th:text="${#numbers.formatInteger(totalPrice, 3, 'COMMA')}"></span>원
+									</td>
+								</tr>
+								<tr>
+									<td id="tableId">배송비</td>
+									<td class="totalShipping">2,500원</td>
+								</tr>
+								<tr>
+									<td id="tableId">최종 결제 금액</td>
+									<td class="totalAmount">
+									    <span th:text="${#numbers.formatInteger(totalPrice + totalShipping, 3, 'COMMA')}"></span>원
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+
+						<h3>결제 수단</h3>
+						<table class="ordPayTable" width="800">
+							<tr>
+								<td id="ordPays">결제 수단</td>
+								<td><input type="radio" name="ordPay" value="card">신용카드
+									<input type="radio" name="ordPay" value="bank">계좌이체 
+									<input type="radio" name="ordPay" value="phone">휴대폰결제 
+									<input type="radio" name="ordPay" value="kakaopay"> 
+									<img th:src="@{/image/Icons/kakao.png}" id="kakao"> 
+									<input type="radio" name="ordPay" value="payco"> 
+									<img th:src="@{/image/Icons/payco.jpg}" id="payco">
+							    </td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<br>
+
+				<div class="orderBtn">
+					<input id="submit" type="submit" value="주문 완료">
+					<button id="cancelBtn" type="button" th:onclick="|location.href='/cartList'|">주문 취소</button>
+				</div>
+			</form>
+		</section>
+        
+        <!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

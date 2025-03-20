@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>REVIEW</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <script th:src="@{/js/comment.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/comm_detail.css}">   
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <input type="hidden" name="sid" th:value="${session.sid}">
+		<input type="hidden" name="postNo" th:value="${review.postNo}">
+		<div class="container">
+			<div id="containerLeft">
+				<h1>COMMUNITY</h1>
+				<div class="sidebar">
+					<ul>
+						<li><a th:href="@{/community/communityView}">ABOUT</a></li>
+						<li><a th:href="@{/community/noticeView}">NOTICE</a></li>
+						<li><a th:href="@{/community/faqView}">FAQ</a></li>
+						<li><a th:href="@{/community/reviewView}">REVIEW</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="content">
+				<h3>REVIEW</h3>
+				<div id="prdInfo">
+				   	<img th:src="@{/project_images/product/{mcId}/{prdInfoImg}(mcId=${review.mcId}, prdInfoImg=${review.prdInfoImg})}"
+						th:onclick="|location.href='@{/product/productDetailView/{prdNo}(prdNo=${review.prdNo})}'|"> 
+					<div id="prdTitle">
+						<a th:href="@{/product/productDetailView/{prdNo}(prdNo=${review.prdNo})}" th:text="${review.prdName}"></a> 
+						<span th:text="${#numbers.formatInteger(review.prdPrice, 3, 'COMMA')} + ' 원'"></span><br>
+						<button th:onclick="|location.href='@{/product/productDetailView/{prdNo}(prdNo=${review.prdNo})}'|">상품 상세보기</button>
+					</div>
+				</div>
+
+				<h4 th:text="${review.postTitle}"></h4>
+				<p th:text="${review.memId}"></p>
+				<div id="postDetail">
+					<div th:if="${not #strings.isEmpty(review.postImg)}">
+						<img th:each="img : ${#strings.arraySplit(review.postImg, ',')}" th:src="@{/project_images/upload/{img}(img=${img})}" />
+					</div><br>
+					<span th:text="${review.postDetail}"></span>
+				</div>
+				<div id="postButton">
+					<button id="postListBtn" th:onclick="|location.href='@{/community/reviewView}'|">목록</button>
+					<th:block th:if="${session.sid eq review.memId}">
+						<button id="postUpdateBtn" th:onclick="|location.href='@{/community/updatePostForm/{postNo}(postNo=${review.postNo})}'|">수정</button>
+						<button id="postDeleteBtn" th:onclick="|location.href='@{/community/deletePost/{postNo}(postNo=${review.postNo})}'|">삭제</button>
+					</th:block>
+				</div>
+
+				<!-- 댓글 -->
+				<div id="commentList"></div>
+				<th:block th:if="${not #strings.isEmpty(session.sid)}">
+					<form id="commentForm">
+						<div id="commentBox">
+							회원명 <input type="text" id="commentName" name="memId" th:value="${session.sid}" readonly> 
+							<input type="hidden" name="postNo" th:value="${review.postNo}">
+							<div id="insertComment">
+								<textarea id="commentContent" name="content" placeholder="댓글을 입력해주세요." required></textarea>
+								<button id="contentBtn" type="button" th:onclick="|insertComment()|">등록</button>
+							</div>
+						</div>
+					</form>
+				</th:block>
+				<p id="commentMsg" th:unless="${not #strings.isEmpty(session.sid)}">회원에게만 댓글 작성 권한이 있습니다.</p>
+			</div>
+        </div>
+		<!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

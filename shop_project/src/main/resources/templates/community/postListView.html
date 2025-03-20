@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NOTICE</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/community.css}">
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+		<div class="container">
+			<div id="containerLeft">
+				<h1>COMMUNITY</h1>
+				<div class="sidebar">
+					<ul>
+						<li><a th:href="@{/community/communityView}">ABOUT</a></li>
+						<li><a th:href="@{/community/noticeView}">NOTICE</a></li>
+						<li><a th:href="@{/community/faqView}">FAQ</a></li>
+						<li><a th:href="@{/community/reviewView}">REVIEW</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content">
+				<div id="notice" class="page active">
+					<h2>NOTICE</h2>
+					<div class="board_list_wrap">
+						<div class="board_list">
+							<div class="top">
+								<div class="num">NO</div>
+								<div class="title_top">SUBJECT</div>
+								<div class="date">DATE</div>
+							</div>
+							<div th:each="notice, status : ${noticeList}" id="notice_content">
+                                <div class="num" th:text="${status.count}"></div>
+                                    <div class="title">
+                                        <a th:href="@{/community/detailViewPost/{postNo}(postNo=${notice.postNo})}" th:text="${notice.postTitle}"></a>
+                                    </div>
+                                <div class="date" th:text="${#dates.format(notice.createdDate, 'yyyy-MM-dd')}"></div>
+                            </div>
+
+                            <div th:if="${session.sid != null and session.mid != null}" class="bt_wrap">
+                                <a th:href="@{/community/noticePostView}" class="on">등록</a>
+                            </div>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		</div>
+
+		<!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

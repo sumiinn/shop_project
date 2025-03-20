@@ -72,14 +72,14 @@ h1 {
 	font-size: 14px;
 	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 3%;
-	margin-top: -2%;
+	/*margin-top: -2%;*/
 }
 
 #postDetail img {
 	width: 50%;
 	height: auto;
 	margin-bottom: -1%;
-	margin-top: -5%;
+	margin-top: -3%;
 }
 
 #containerLeft {
@@ -165,7 +165,6 @@ h1 {
 	border: 1px solid #ddd;
 	background-color: #f9fbff;
 	font-size: 13px;
-	margin-top: -6%;
 }
 
 #commentBox {
@@ -214,7 +213,7 @@ h1 {
 	height: 104px; 
 	overflow-y: auto;
 	margin: 0;
-	margin-top: -2.2%;
+	margin-top: -2.1%;
 	border-top: 1px solid #ccc;
 	position: relative;
 }
@@ -251,6 +250,61 @@ h1 {
     font-size: 12px;
 }
 
+#emptyMsg {
+	padding: 2%;
+	font-size: 13px;
+	color: black;
+	border-bottom: none;
+}
+
+#commentMsg {
+	padding: 2%;
+	border: 1px solid #ddd;
+	background-color: #f9fbff;
+	font-size: 13px;
+	color: black;
+}
+
+
+.editBox {
+	width: 92%;
+	border: 1px solid #ddd;
+	background-color: #f9fbff;
+	font-size: 13px;
+	margin-left: 2%;  
+	display: flex; 
+	padding: 2%;
+}
+
+.editBox textarea {
+	width: 80%;
+	height: 60px;
+	border: 1px solid #ddd;
+	font-size: 13px;
+	resize: none;
+}
+
+#saveEditBtn {
+	border: 1px solid #ddd;
+	width: 8%;
+	height: 40px;
+	font-size: 12px;
+	margin-left: 2%;
+	color: white;
+	background-color: #858585;
+	cursor: pointer;
+}
+
+#cancelEditBtn {
+	border: 1px solid #ddd;
+	width: 8%;
+	height: 40px;
+	font-size: 12px;
+	margin-left: 2%;
+	color: black;
+	background-color: white;
+	cursor: pointer;
+}
 
 @media (max-width: 768px) {
     .container {

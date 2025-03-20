@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ABOUT</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/community.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/comm_about.css}">
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+		<div class="container">
+			<div id="containerLeft">
+				<h1>COMMUNITY</h1>
+				<div class="sidebar">
+					<ul>
+						<li><a th:href="@{/community/communityView}">ABOUT</a></li>
+						<li><a th:href="@{/community/noticeView}">NOTICE</a></li>
+						<li><a th:href="@{/community/faqView}">FAQ</a></li>
+						<li><a th:href="@{/community/reviewView}">REVIEW</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content">
+				<div class="aboutImg">
+					<img th:src="@{/project_images/community/aboutNonmajor.jpg}">
+				</div>
+				<div class="aboutContent">
+				    <span th:utext="${aboutList.postDetail}"></span>
+				</div>
+			</div>
+		</div>
+		<!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

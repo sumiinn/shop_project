@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/categori.css}">
+    
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>        
+        <section>
+			<div id="categoriMain">
+				<br>
+				<div th:if="${subList != null and subList.size() > 0}" id="categoriMainName" th:text="${subList[0].mcName}"></div>
+				<br><hr><br>
+				<div id="classificationBox">
+					<div id="totalCategori" class="categoriBox selectBox" th:text="${subList[0].mcName}"></div>
+					<div th:each="sub : ${subList}" th:id="'ctg_' + ${sub.scId}" class="categoriBox subCategori" th:data-ctgName="${sub.scName}" th:data-subNo="${sub.scId}" th:text="${sub.scName}"></div>
+				</div>
+
+				<!-- 베스트상품 슬라이드쇼 -->
+				<div th:if="${prdList.size() != 0}" id="slideBox">
+					<div>Best</div>
+					<ul id="slideWrap">					
+						<li class="slideItem" th:each="i : ${#numbers.sequence(0, (prdList.size() / 4) - 1)}">
+							<div th:each="j : ${#numbers.sequence(0, 3)}">
+								<div class="slideImage prdContent" th:data-prdno="${prdList[i*4 + j].prdNo}">
+									<img class="bestImg" th:src="@{/project_images/product/{mcId}/{prdImg}(mcId=${prdList[i*4 + j].mcId}, prdImg=${#strings.arraySplit(prdList[i*4 + j].prdImg, ',')[0]})}" />
+									<div th:text="${prdList[i*4 + j].prdName}"></div>
+									<hr>
+									<div class="bestPrice" th:data-price="${prdList[i*4 + j].prdPrice}"></div>
+								</div>
+							</div>
+						</li>				
+					</ul>
+				</div>
+
+				<!-- 상품 리스트 -->
+				<div id="actualProduct">
+					<div id="apT">
+						<div id="totalcount">
+							<div id="countN"></div>
+							<div>item</div>
+						</div>
+						<div id="viewMethod">
+							<div id="tv">2</div>
+							<div id="fv">4</div>
+							<div id="sv">6</div>
+							<div id="ev">8</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div id="apB" th:if="${prdList.size() != 0}">				
+					<div th:each="prd : ${prdList}" class="prdContent prdBox shirts fourCountG" th:data-sub="${prd.scId}" th:data-prdno="${prd.prdNo}">
+						<div class="apBprdImg">
+							<img th:src="@{/project_images/product/{mcId}/{prdImg}(mcId=${prd.mcId}, prdImg=${#strings.arraySplit(prd.prdImg, ',')[0]})}" />
+						</div>
+						<div class="apBprdText">
+							<div class="tablePrdName" th:text="${prd.prdName}"></div>
+							<hr>
+							<div class="apBPrdPrice" th:data-price="${prd.prdPrice}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+        
+        <!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+    <script th:src="@{/js/categori.js}"></script>
+</body>
+</html>

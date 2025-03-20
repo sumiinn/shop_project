@@ -130,6 +130,12 @@ public class CommunityController {
 		return "redirect:/community/noticeView";
 	}
 	
+	// 자주 묻는 질문 페이지 열기
+	@GetMapping("/community/faqView")
+	public String faqView() {
+		return "community/faqView";
+	}
+	
 	// 리뷰 페이지 열기
 	@GetMapping("/community/reviewView")
 	public String reviewView(Model model) {

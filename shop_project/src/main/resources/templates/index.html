@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nonmajor5</title>
+    
+    <!-- head.jsp import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mainSlideShow.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mainProduct.css}">
+    <script th:src="@{/js/slideShow.js}"></script>
+    <script th:src="@{/js/video.js}"></script>
+</head>
+<body>
+    <div id="wrap">
+        
+        <!-- top.jsp import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        
+        <section id="pageArea">
+            <article id="slideShow"> <!-- 슬라이드 쇼 -->
+                <div id="slideShowBox">
+                    <div id="slidePanel">
+                        <img th:src="@{/project_images/banner/slide17.png}" class="slideImage">
+                        <img th:src="@{/project_images/banner/slide7.png}" class="slideImage">
+                        <img th:src="@{/project_images/banner/slide14.png}" class="slideImage">
+                        <img th:src="@{/project_images/banner/slide16.png}" class="slideImage">
+                        <img th:src="@{/project_images/banner/slide6.png}" class="slideImage">
+                    </div>
+                </div> <!-- slideShowBox 끝 -->
+            </article>
+            
+            <article id="content1">
+                <div id="ment">
+                    <br><br><br>
+                    <h4>Suggestions for an elegant life</h4><br><br>
+                    하루 중 모든 순간에 조화로운 아이템과 시간이 지나도 변치 않는 가치로<br>
+                    더 쾌적하고 여유롭게, 나만의 라이프 스타일을 재정의 합니다.<br><br>
+
+                    <h4>CS OPEN HOURS</h4><br>
+                    <h4>MON-FRI 10:00 ~ 16:00</h4><br>
+                    <h4>SAT.SUN.HOLIDAY OFF</h4><br><br>
+
+                    <h4>Kakao. @NONMAJOR5</h4><br>
+                    <h4>Tel. 032-123-4567</h4>
+                </div>
+                <br><br>
+                <div id="tabContent">
+                    <video id="myVideo" width="960" height="480" controls muted autoplay>
+                        <source th:src="@{/project_images/banner/video.mp4}" type="video/mp4">
+                    </video>
+                </div>  
+            </article>
+            <br><br>
+            
+            <article id="content2"> <!-- 베스트 상품 -->
+                <div class="best">
+                    <h4> 베스트 상품</h4>  
+                    <h6><a href="categori.html" style="text-decoration:none; color:gray;">더 많은 상품 보기</a></h6>
+                </div>
+                <div id="productBox">
+                    <div class="product">
+                        <th:block th:each="prdB : ${bestPrdList}">
+                            <div>
+                                <a th:href="@{/product/productDetailView/{prdNo}(prdNo=${prdB.prdNo})}" style="text-decoration:none; color:black;">
+                                    <img th:src="@{/project_images/product/{mcId}/{prdImg}(mcId=${prdB.mcId}, prdImg=${#strings.arraySplit(prdB.prdImg, ',')[0]})}" />
+                                    <span th:text="${prdB.prdName}"></span><br>
+                                    <span th:text="${#numbers.formatInteger(prdB.prdPrice, 0, 'COMMA') + ' 원'}"></span>
+                                </a>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </article>
+            
+            <article id="content2"> <!-- 새로운 상품 -->
+                <div class="new">
+                    <h4>새로운 상품</h4>   
+                    <h6><a href="categori.html" style="text-decoration:none; color:gray;">더 많은 상품 보기</a></h6>
+                </div>
+                <div id="productBox">
+                    <div class="product">
+                        <th:block th:each="prdN : ${newPrdList}">
+                            <div>
+                                <a th:href="@{/product/productDetailView/{prdNo}(prdNo=${prdN.prdNo})}" style="text-decoration:none; color:black;">
+                                    <img th:src="@{/project_images/product/{mcId}/{prdImg}(mcId=${prdN.mcId}, prdImg=${#strings.arraySplit(prdN.prdImg, ',')[0]})}"> 
+                                    <span th:text="${prdN.prdName}"></span><br>
+                                    <span th:text="${#numbers.formatInteger(prdN.prdPrice, 0, 'COMMA')}"></span> 원 
+                                </a>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+        <!-- bottom.jsp import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

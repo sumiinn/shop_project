@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/orderComplete.css}">
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        
+        <section>
+			<div id="orderComplete">
+				<img th:src="@{/image/Icons/order.png}" id="order">
+				<div id="orderDetail">
+					<h3>고객님의 주문이 완료되었습니다.</h3>
+					<p>주문번호 : <span id="orderNumber" th:text="${ordNo}"></span></p>
+					<p>주문일자 : <span id="orderDate" th:text="${ordDate}"></span></p>
+				</div>
+			</div>
+		</section>
+        
+        <!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{/js/prdModal.js}"></script>
+</head>
+<body>
+<form class="modal_popup" th:action="@{/shop/insertCart}" method="post">
+    <div class="moreInfoF">
+        <!-- 구매 및 사진 -->
+        <div id="modalimg">
+            <img th:src="@{'/project_images/product/' + ${prdInfo.mcId} + '/' + ${#strings.arraySplit(prdInfo.prdImg, ',')[0]}}" alt="상품 이미지">
+        </div>
+
+        <div id="infoArea" class="modalInfo">
+            <!-- 정보 영역 -->
+            <span id="modalPrdName"></span><br><br><hr><br>
+
+            <input type="hidden" name="prdNo" th:value="${prdInfo.prdNo}"> 	
+            <input type="hidden" id="selectedColor" name="cartColor" value="">
+            <input type="hidden" id="selectedSize" name="cartSize" value="">
+
+            <table>
+                <tr>
+                    <th>판매가</th>
+                    <td><span id="modalPrice" th:attr="data-Price=${prdInfo.prdPrice}"></span></td>
+                </tr>
+                <tr>
+                    <th>포인트</th>
+                    <td><span id="modalPoint"></span></td>
+                </tr>
+            </table>
+
+            <br><hr><br>
+
+            <table>
+                <tr>
+                    <th>color</th>
+                    <td>
+                        <div th:if="${prdInfo.prdColor}">
+                            <div th:each="col : ${#strings.arraySplit(prdInfo.prdColor, ',')}">
+                                <img class="colorEx" 
+                                     th:attr="data-color=${col}" 
+                                     th:name="${col}" 
+                                     alt="" 
+                                     th:src="@{'/project_images/prd_colors/' + ${col}}">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>size</th>
+                    <td>
+                        <select id="size" name="size">
+                            <th:block th:if="${#strings.isEmpty(prdInfo.prdSize)}">
+                                <option value="F">프리 사이즈 입니다.</option>
+                            </th:block>
+                            <th:block th:if="${!#strings.isEmpty(prdInfo.prdSize)}">
+                                <option value="none">[필수]사이즈 선택</option>
+                                <option th:each="size : ${#strings.arraySplit(prdInfo.prdSize, ',')}"
+                                        th:value="${size}"
+                                        th:text="${size}"
+                                        th:attr="data-size=${size}"></option>
+                            </th:block>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <br><hr><br>
+
+            <div id="modalfinalCheck">
+                <div>
+                    <table>
+                        <tr id="modalCountNo" class="visibility">
+                            <th>수량</th>
+                            <td>
+                                <input type="number" name="cartQty" id="modalnumberCheck" value="1">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="modaltotalPrice">
+                    TOTAL :&nbsp;<span id="mdalSumCost"></span>
+                </div>
+            </div>
+
+            <div id="modalbuttonBar">
+                <button type="submit" class="modalshopBtn">장바구니 넣기</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

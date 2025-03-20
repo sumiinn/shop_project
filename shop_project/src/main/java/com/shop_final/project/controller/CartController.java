@@ -94,8 +94,8 @@ public class CartController {
 	
 	// 주문서 열기
 	@RequestMapping("/orderForm")
-	public String orderForm(@RequestParam int[] cartNo,
-			                @RequestParam int[] cartQty,			               
+	public String orderForm(@RequestParam("cartNo") int[] cartNo,
+			                @RequestParam("cartQty") int[] cartQty,			               
 			                Model model,
 			                HttpSession session) {		
 		String memId = (String)session.getAttribute("sid");	          		
@@ -114,6 +114,14 @@ public class CartController {
 		// 주문서에 장바구니 목록 출력 
 		ArrayList<CartVO> cartList = cartService.cartList(memId);
 		model.addAttribute("cartList", cartList); 
+		
+		// 총 상품 금액 계산
+	    int totalPrice = 0;
+	    for (CartVO prd : cartList) {
+	        totalPrice += prd.getPrdPrice() * prd.getCartQty();
+	    }
+	    
+	    model.addAttribute("totalPrice", totalPrice);
 
 		return "shop/orderForm";
 	}

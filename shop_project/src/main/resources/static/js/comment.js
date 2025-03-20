@@ -51,7 +51,7 @@ function loadComment() {
 			let commentHtml = "";
 			
 			if(comments.length === 0) {
-				$('#commentList').html("<p>등록된 댓글이 없습니다.</p>");
+				$('#commentList').html("<p id='emptyMsg'>등록된 댓글이 없습니다.</p>");
 				return;
 			}
 			
@@ -72,7 +72,7 @@ function loadComment() {
 				commentHtml += `</div>`;
 				
 				// 댓글 별 수정 공간 만들기(commentNo 필수)
-				commentHtml += `<div id="editCommentBox${comment.commentNo}" style="display:none;">
+				commentHtml += `<div id="editCommentBox${comment.commentNo}" class="editBox" style="display:none;">
                                     <textarea id="editContent${comment.commentNo}">${comment.content}</textarea>
                                     <button id="saveEditBtn" onclick="saveEditComment(${comment.commentNo})">수정</button>
                                     <button id="cancelEditBtn" onclick="cancelEditComment(${comment.commentNo})">취소</button>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.postTitle}">NOTICE</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/comm_detail.css}">
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <div class="container">
+			<div id="containerLeft">
+				<h1>COMMUNITY</h1>
+				<div class="sidebar">
+					<ul>
+						<li><a th:href="@{/community/communityView}">ABOUT</a></li>
+						<li><a th:href="@{/community/noticeView}">NOTICE</a></li>
+						<li><a th:href="@{/community/faqView}">FAQ</a></li>
+						<li><a th:href="@{/community/reviewView}">REVIEW</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content">
+				<h3>NOTICE</h3>
+				<h4 th:text="${post.postTitle}"></h4>
+				<p th:text="${post.memId}"></p>
+				<div id="postDetail">
+					<div th:if="${post.postImg != null and not #strings.isEmpty(post.postImg)}">
+						<div th:each="img : ${#strings.arraySplit(post.postImg, ',')}">
+							<img th:src="@{/project_images/upload/{filename}(filename=${img})}" />
+						</div>
+					</div>
+					<div th:text="${post.postDetail}"></div>
+			    </div>
+				<div id="postButton">
+					<button id="postListBtn" th:onclick="|location.href='@{/community/noticeView}'|">목록</button>
+					<div th:if="${session.sid != null and session.mid != null}">
+						<button id="postUpdateBtn" th:onclick="|location.href='@{/community/updatePostForm/{postNo}(postNo=${post.postNo})}'|">수정</button>
+						<button id="postDeleteBtn" th:onclick="|location.href='@{/community/deletePost/{postNo}(postNo=${post.postNo})}'|">삭제</button>
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

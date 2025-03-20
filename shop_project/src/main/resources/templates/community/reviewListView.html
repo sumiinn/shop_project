@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>REVIEW</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+		<div class="container">
+			<div id="containerLeft">
+				<h1>COMMUNITY</h1>
+				<div class="sidebar">
+					<ul>
+						<li><a th:href="@{/community/communityView}">ABOUT</a></li>
+						<li><a th:href="@{/community/noticeView}">NOTICE</a></li>
+						<li><a th:href="@{/community/faqView}">FAQ</a></li>
+						<li><a th:href="@{/community/reviewView}">REVIEW</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content">
+				<h2>REVIEW</h2>
+				<table id="reviewTable">
+					<tr>
+						<th>NO</th>
+						<th>PRODUCT</th>
+						<th>SUBJECT</th>
+						<th>WRITER</th>
+						<th>DATE</th>
+					</tr>
+
+					<tr th:each="review, status : ${reviewList}">
+                        <td class="num_td" th:text="${reviewList.size() - status.index}"></td>
+                        <td class="img_td">
+                            <a th:href="@{/product/productDetailView/{prdNo}(prdNo=${review.prdNo})}">
+                                <img th:src="@{/project_images/product/{mcId}/{prdInfoImg}(mcId=${review.mcId}, prdInfoImg=${review.prdInfoImg})}" />
+                            </a>
+                        </td>
+                        <td class="subject_td">
+                            <span th:text="${review.prdName}"></span><br>
+                            <a th:href="@{/community/detailViewReview/{postNo}(postNo=${review.postNo})}" class="title_td" th:text="${review.postTitle}"></a>
+                        </td>
+                        <td class="writer_td" th:text="${review.memId}"></td>
+                        <td class="date_td" th:text="${#dates.format(review.createdDate, 'yyyy-MM-dd')}"></td>
+                    </tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

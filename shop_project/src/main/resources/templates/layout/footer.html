@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <footer th:fragment="footer">
+        <div class="footer-box">
+            <h6>
+                TEL 032-123-1234 MON-FRI 10:00 ~ 16:00<br>
+                (LUNCH TIME 12:00 ~ 13:00)<br>
+                SAT.SUN.HOLIDAY OFF<br>
+                COMPANY: 주식회사 NONMAJOR5 CEO: 고양이 인천시 서구 이음3로 ABC타워 302호<br>
+                BUSINESS LICENSE: 123-34-67890 제 1234-인천서구-1234호<br>
+                CPO: 강아지 (asd123@naver.com)
+            </h6>
+        </div>
+        <div class="footer-box">
+            <h6>
+                교환 &amp; 반품<br>
+                인천시 서구 이음3로<br>
+                ABC타워 302호<br><br>
+                KB국민 123456-00-123456<br>
+                예금주 : 주식회사 논메이저5
+            </h6>
+        </div>
+        <div class="footer-box">
+            <h6><a th:href="@{http://www.instagram.com}" style="text-decoration:none; color:black;">INSTAGRAM</a><br><br></h6>
+            <h6><a th:href="@{http://section.blog.naver.com}" style="text-decoration:none; color:black;">BLOG</a><br><br></h6>
+            <h6><a th:href="@{https://www.youtube.com}" style="text-decoration:none; color:black;">YOUTUBE</a><br><br></h6>
+        </div>
+        <div class="footer-box">
+            <h6><a th:href="@{https://top.cafe.daum.net/}" style="text-decoration:none; color:black;">CAFE</a><br><br></h6>
+            <h6><a th:href="@{https://www.kakaocorp.com/page/service/service/KakaoTalkChannel}" style="text-decoration:none; color:black;">KAKAOTALK</a><br><br></h6>
+            <h6><a th:href="@{http://localhost:8080/NonMajor55/index.html#}" style="text-decoration:none; color:black;">HOMEPAGE</a><br><br></h6>
+        </div>
+    </footer>
+</body>
+</html>

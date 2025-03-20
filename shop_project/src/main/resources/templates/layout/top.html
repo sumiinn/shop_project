@@ -1,0 +1,115 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="top">
+<div id="headerBox">
+    <ul id="topMenuLeft">
+        <li>즐겨찾기</li>
+        <li>바로가기</li>                
+    </ul>
+    <ul id="topMenuRight">
+        <!-- session 값에 따라 다르게 메뉴 항목 출력 -->
+        <!-- 로그인 하지 않은 경우 : 로그인, 회원가입 -->
+        <div th:if="${session.sid == null}">
+            <li><a th:href="@{/member/loginForm}">로그인</a></li>
+            <li><a th:href="@{/member/signUp}">회원가입</a></li>
+            <li><a th:href="@{/event}">이벤트</a></li>
+            <li><a th:href="@{/community/communityView}">커뮤니티</a></li>
+        </div>
+        
+        <!-- 로그인 성공한 경우 : 로그아웃, 게시판, 장바구니, 마이페이지 -->
+        <div th:if="${session.sid != null and session.mid == null}">
+            <a th:href="@{/member/logout}">로그아웃</a> 
+            <a th:href="@{/community/communityView}">커뮤니티</a> 
+            <a th:href="@{/event}">이벤트</a>
+            <a th:href="@{/cartList}">장바구니</a> 
+            <a th:href="@{/member/joinForm}">마이페이지</a> 
+        </div>
+        
+        <!-- 관리자 아이디 -->
+        <div th:if="${session.sid != null and session.mid != null}">
+            관리자 아이디 입니다. 
+            <a th:href="@{/member/logout}">로그아웃</a> 
+            <a th:href="@{/community/communityView}">커뮤니티</a>
+            <a th:href="@{/event}">이벤트</a>
+            <a th:href="@{/product/insertPrdForm}">상품추가</a>
+            <a th:href="@{/product/changePrdForm}">상품정보변경</a>
+        </div>
+    </ul>        
+</div>
+
+<div id="menuLogo">
+    <img id="menuLogoImg" th:src="@{/image/Icons/logo.png}">
+</div>
+
+<nav id="headMenu">
+    <div id="mainMenuBox">
+        <ul id="menuItem">
+            <li><a th:href="@{/product/productCtgList/{1}(1=${1})}">TOP</a></li>
+            <li><a th:href="@{/product/productCtgList/{2}(2=${2})}">BOTTOM</a></li>
+            <li><a th:href="@{/product/productCtgList/{3}(3=${3})}">OUTER</a></li>
+            <li><a th:href="@{/product/productCtgList/{4}(4=${4})}">HEADWEAR</a></li>
+            <li><a th:href="@{/product/productCtgList/{5}(5=${5})}">ACCESSORY</a></li>
+        </ul>
+    </div>
+
+    <div id="subMenuBox" class="visibility">
+        <!-- 각각의 서브 메뉴 항목을 동일하게 적용 -->
+        <div class="subMenuItem" id="subMenuItem1">
+            <ul>
+                <li><a th:href="@{/product/productCtgList/{1}(1=${1})}">TOP</a></li>
+                <li><a th:href="@{/product/productCtgList/{2}(2=${2})}">SHIRTS</a></li>
+                <li><a th:href="@{/product/productCtgList/{3}(3=${3})}">SHORT-TEE</a></li>
+                <li><a th:href="@{/product/productCtgList/{4}(4=${4})}">LONG-TEE</a></li>
+                <li><a th:href="@{/product/productCtgList/{4}(4=${4})}">HOODIE</a></li>
+                <li><a th:href="@{/product/productCtgList/{4}(4=${4})}">ETC</a></li>
+            </ul>
+        </div>
+        
+        <div class="subMenuItem" id="subMenuItem2">
+			<ul>
+				<li><a th:href="@{/product/productCtgList/{2}(2=${2})}">BOTTOM</a></li>
+				<li><a href="#">SHORT-PANTS</a></li>
+				<li><a href="#">LONG-PANTS</a></li>
+				<li><a href="#">ETC</a></li>
+			</ul>
+		</div>
+		<div class="subMenuItem" id="subMenuItem3">
+			<ul>
+				<li><a th:href="@{/product/productCtgList/{3}(3=${3})}">OUTER</a></li>
+				<li><a href="#">JACKET</a></li>
+				<li><a href="#">JUMPER</a></li>
+				<li><a href="#">COAT</a></li>
+				<li><a href="#">PADDING</a></li>
+				<li><a href="#">ETC</a></li>
+			</ul>
+		</div>
+		<div class="subMenuItem" id="subMenuItem4">
+			<ul>
+				<li><a th:href="@{/product/productCtgList/{4}(4=${4})}">HEADWEAR</a></li>
+				<li><a href="#">CAP</a></li>
+				<li><a href="#">SNAPBACK</a></li>
+				<li><a href="#">BEANIE</a></li>
+				<li><a href="#">ETC</a></li>
+			</ul>
+		</div>
+		<div class="subMenuItem" id="subMenuItem5">
+			<ul>
+				<li><a th:href="@{/product/productCtgList/{5}(5=${5})}">ACCESSORY</a></li>
+				<li><a href="#">BAGS</a></li>
+				<li><a href="#">WALLET</a></li>
+				<li><a href="#">BELT</a></li>
+				<li><a href="#">SOCKS</a></li>
+				<li><a href="#">ETC</a></li>
+			</ul>
+		</div>
+    </div>
+</nav>
+
+<div class="quickmenu">
+    <ul>
+        <li id="upBtn">맨 위로</li>
+        <button onclick="window.open('chatbot.html', 'window_name', 'width=430, height=600, location=no, status=no, scrollbars=yes');">챗봇상담</button>
+        <li id="review">후기</li>
+    </ul>
+</div>
+</div>
+</html>

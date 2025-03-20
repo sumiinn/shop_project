@@ -12,7 +12,7 @@ public class CartVO {
 	// DB 테이블에는 없지만 
 	// Mapper에서 받아서 뷰 페이지에 출력할 때 필요한 필드 추가
 	private String prdName;
-	private String prdPrice;
+	private int prdPrice;
 	private String prdInfoImg;
 	private String mcId;
 	
@@ -64,10 +64,10 @@ public class CartVO {
 	public void setPrdName(String prdName) {
 		this.prdName = prdName;
 	}
-	public String getPrdPrice() {
+	public int getPrdPrice() {
 		return prdPrice;
 	}
-	public void setPrdPrice(String prdPrice) {
+	public void setPrdPrice(int prdPrice) {
 		this.prdPrice = prdPrice;
 	}
 	public String getPrdInfoImg() {

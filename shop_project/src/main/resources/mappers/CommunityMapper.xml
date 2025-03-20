@@ -16,13 +16,13 @@
   	<!-- 상세 글 조회 -->
   	<select id="detailViewPost" parameterType="string" resultType="com.shop_final.project.model.CommunityVO">
   		SELECT cp.*, 
-           p.prdInfoImg, 
-           p.mcId, 
-           p.prdName, 
-           p.prdPrice  <!-- 상품 가격도 추가 -->
-    FROM comm_posts cp
-    LEFT JOIN product p ON cp.prdNo = p.prdNo
-    WHERE cp.postNo = #{postNo} 
+               p.prdInfoImg, 
+               p.mcId, 
+               p.prdName, 
+               p.prdPrice  <!-- 상품 가격도 추가 -->
+        FROM comm_posts cp
+        LEFT JOIN product p ON cp.prdNo = p.prdNo
+        WHERE cp.postNo = #{postNo} 
   	</select>
   	
   	<!-- 글 작성 -->

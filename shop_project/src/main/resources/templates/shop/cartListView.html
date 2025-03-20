@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- head.html import -->
+    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/info.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cart.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cartTable.css}">
+    <script th:src="@{/js/cart.js}"></script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- top.html import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        
+        <section>
+            <header>
+				<h3>CART</h3>
+				
+				<nav>
+					<ul>
+						<li><a th:href="@{/}">홈</a> &gt; <a th:href="@{/cartList}">장바구니</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main>
+				<div class='cartTabs'>
+					<button id='domesticBtn' class="btn">
+						국내 배송상품(<span th:text="${prdCount}"></span>)
+					</button>
+					<p id="notice">장바구니에 담긴 상품은 30일 동안 보관됩니다.</p>
+				</div>
+
+				<div id="domesticCart">
+					<p class='emptyMessage' id='emptyMsgDom'
+						th:if="${#lists.isEmpty(cartList)}">장바구니가 비어있습니다.</p>
+
+					<div th:if="${not #lists.isEmpty(cartList)}">
+						<p id="commonPrd">
+							일반상품(<span id="domestic-item-count" th:text="${prdCount}"></span>)
+						</p>
+
+						<table class="cartTable">
+							<tr>
+								<th></th>
+								<th>이미지</th>
+								<th id="prdInfo">상품정보</th>
+								<th id="prdAmount">수량</th>
+								<th>상품구매금액</th>
+								<th>적립금</th>
+								<th>배송구분</th>
+								<th>선택</th>
+							</tr>
+							
+							<th:block th:with="totalPrice=0">
+							<th:block th:with="totalShipping=2500">
+							
+							<th:block th:each="prd : ${cartList}" th:with="amount=${prd.prdPrice} * ${prd.cartQty}, totalPrice=${totalPrice} + amount">
+                                <span class="amount" th:data-amount="${amount}"></span>
+                            </th:block>
+							
+
+							<tr th:each="prd : ${cartList}">
+								<td><input type="checkbox" class="itemCheckbox" th:value="${prd.cartNo}"></td>
+								<td><img th:src="@{/project_images/product/{mcId}/{img}(mcId=${prd.mcId}, img=${prd.prdInfoImg})}" /></td>
+								<td class="name">
+								    <a th:href="@{/product/productDetailView/{prdNo}(prdNo=${prd.prdNo})}" th:text="${prd.prdName}"></a><br> 
+								    <small>[색상: <span th:text="${prd.cartColor}"></span> / 사이즈: <span th:text="${prd.cartSize}"></span>]
+								</small></td>
+								<td class="quantityWrap">
+								    <input type="number" th:value="${prd.cartQty}" class="quantity" min="1"> 
+								    <input type="hidden" name="cartNo" th:value="${prd.cartNo}"> 
+								    <input type="hidden" name="cartQty" th:value="${prd.cartQty}">
+									<button class="update">변경</button>
+								</td>
+								<td class="price" th:data-price="${prd.prdPrice}" th:data-amount="${prd.prdPrice * prd.cartQty}">
+								    <span th:text="${#numbers.formatInteger(prd.prdPrice * prd.cartQty, 3, 'COMMA')}"></span>원
+								</td>
+								<td class="points" th:data-points="${prd.prdPrice * prd.cartQty * 0.01}">
+								    <span th:text="${#numbers.formatInteger(prd.prdPrice * prd.cartQty * 0.01, 3, 'COMMA')}"></span>원
+								</td>
+								<td class="shipping">기본배송<br>2,500원</td>
+								<td>
+									<form method="post" th:action="@{/orderForm}">
+										<input type="hidden" name="cartNo" th:value="${prd.cartNo}">
+										<input type="hidden" name="cartQty" th:value="${prd.cartQty}">
+										<button class="order">주문하기</button>
+									</form>
+									<button class="delete">삭제</button>
+								</td>
+							</tr>
+						</table>
+
+						<!-- 총 가격 계산 -->
+						<th:block
+							th:with="totalPrice=${#aggregates.sum(cartList.![prdPrice * cartQty])}, totalShipping=2500">
+							<table class="orderTable" id="domesticOrderTable">
+								<thead>
+									<tr>
+										<th>총 상품금액</th>
+										<th>총 배송비</th>
+										<th>결제예정금액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="totalPrice">
+										    <span th:text="${#numbers.formatInteger(totalPrice, 3, 'COMMA')}"></span>원
+										</td>
+										<td class="totalShipping">+ 2,500원</td>
+										<td class="totalAmount">= 
+										    <span th:text="${#numbers.formatInteger(totalPrice + totalShipping, 3, 'COMMA')}"></span>원
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</th:block>
+					</div>
+				</div>
+
+				<div class="prdOrder">
+					<form method="post" th:action="@{/orderForm}">
+					  <div th:each="prd : ${cartList}">
+                        <input type="hidden" name="cartNo" th:value="${prd.cartNo}">
+                        <input type="hidden" name="cartQty" th:value="${prd.cartQty}">
+                      </div>					 					    
+						<input type="submit" id="orderAll" value="전체상품주문"> 
+						<input type="submit" id="orderSelected" value="선택상품주문">
+					</form>
+				</div>
+
+				<div class="continueShop">
+					<button id="continueShopBtn" th:onclick="|location.href='/'|">쇼핑계속하기</button>
+				</div>
+
+				<div class="information">
+					<p id="infoDesk">이용안내</p>
+					<hr>
+					<div id="info">
+						<h5>장바구니 이용안내</h5>
+						<ol>
+							<li>해외배송 상품과 국내배송 상품은 함께 결제하실 수 없으며 장바구니 별로 따로 결제해 주시기 바랍니다.</li>
+							<li>해외배송 가능 상품의 경우 국내배송 장바구니에 담아두기 하여 해외배송 장바구니로 이동하여 결제하실 수
+								있습니다.</li>
+							<li>선택하신 상품의 수량을 변경하신뒤에 수량변경 버튼을 누르시면 됩니다.</li>
+							<li>삭제하시기를 누르시면 장바구니 상품을 삭제할 수 있습니다.</li>
+							<li>장바구니에 관심상품을 이용하여 여러 상품을 한번에 주문하실 수 있습니다.</li>
+							<li>파일첨부 옵션은 동일상품을 장바구니에 추가할 경우 마지막에 업로드 한 파일로 교체됩니다.</li>
+						</ol>
+					</div>
+					<div id="info">
+						<h5>무이자할부 이용안내</h5>
+						<ol>
+							<li>상품을 무이자할부 혜택을 받으시려면 무이자할부 상품만 선택하여 (주문하기) 버튼을 눌러
+								주문/결제하시면 됩니다.</li>
+							<li>점검시간 이후 접수된 누적된 장바구니내 상품들에 대한 주문/결제 가 이루어집니다.</li>
+							<li>단, 사전에 상품을 주문/결제하실 경우, 상품을 무이자할부 혜택을 받으실 수 없습니다.</li>
+							<li>무이자할부 혜택을 받으시려면 무이자할부 상품의 기준으로 배송비가 표시됩니다.</li>
+							<li>실제 배송비는 함께 주문하는 상품에 따라 적용되오니 주의하시기 바랍니다.</li>
+						</ol>
+					</div>
+				</div>
+			</main>
+
+		</section>
+        
+        <!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+    </div>
+</body>
+</html>

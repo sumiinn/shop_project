@@ -1,6 +1,7 @@
 package com.shop_final.project.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import com.shop_final.project.model.ProductVO;
 import com.shop_final.project.model.SubCategoryVO;
 import com.shop_final.project.service.ProductService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class ProductController {
 	@Autowired
@@ -22,11 +25,20 @@ public class ProductController {
 	
 	/* 메인화면 컨트롤러 */
 	@RequestMapping("/")
-	public String index(Model model) {
+	public String index(HttpSession session, Model model) {
+		// 세션에서 필요한 값을 가져오기
+        String sid = (String) session.getAttribute("sid");
+        String mid = (String) session.getAttribute("mid");
+
+        // 모델에 세션 정보를 추가
+        model.addAttribute("sid", sid);
+        model.addAttribute("mid", mid);
+        
 		ArrayList<ProductVO> bestPrdList = prdService.bestPrdList();
 		ArrayList<ProductVO> newPrdList = prdService.newPrdList();
 		model.addAttribute("bestPrdList", bestPrdList);
 		model.addAttribute("newPrdList", newPrdList);
+		
 		return "index";
 	} 
 	
@@ -105,10 +117,10 @@ public class ProductController {
 		String[] prdImgList = prd.getPrdImg().split(",");
 		String[] prdInfoImg = prd.getPrdInfoImg().split(",");
 		model.addAttribute("prd", prd);
-		model.addAttribute("colorList", colorList);
-		model.addAttribute("sizeList", sizeList);
-		model.addAttribute("prdImgList", prdImgList);
-		model.addAttribute("prdInfoImg", prdInfoImg);
+		model.addAttribute("colorList", Arrays.asList(colorList));
+		model.addAttribute("sizeList", Arrays.asList(sizeList));
+		model.addAttribute("prdImgList", Arrays.asList(prdImgList));
+		model.addAttribute("prdInfoImg", Arrays.asList(prdInfoImg));
 		model.addAttribute("reviewList", reviewList);
 		model.addAttribute("prdRList", prdRList);
 		

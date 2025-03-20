@@ -40,6 +40,33 @@ $(function(){
 	});
 	
 	/*카테고리 세부 분류*/
+	let categoriIdArr = [];
+	$('.categoriBox').each(function(){
+		categoriIdArr.push($(this).attr("id"));
+	});
+	categoriIdArr.shift();
+
+	for(let i = 0; i < categoriIdArr.length; i++){
+		let tempId = '#' + categoriIdArr[i];
+		$(tempId).on('click', function(){
+			let subIdNo = $(this).data('subno');
+			let countPub = 0;
+			$('.categoriBox').removeClass('selectBox');
+			$(tempId).addClass('selectBox');
+			$('.prdBox').each(function(){
+				if($(this).data('sub') == subIdNo){
+					$(this).removeClass('visibility');
+					countPub++;
+				}else{
+					$(this).addClass('visibility');
+				}
+			});
+			$('#countN').text(countPub);
+			$('#slideBox').addClass('visibility');
+		});
+	}
+	
+	/*
 	let categoriIdArr=[];
 	let categoriClassArr=[];
 	$('.categoriBox').each(function(){
@@ -77,7 +104,7 @@ $(function(){
 			$('#countN').text(countPub);
 			$('#slideBox').addClass('visibility');
 		})
-	}
+	}*/
 	
 	// 베스트 상품 가격 불러오기
 	$('.bestPrice').each(function(){
