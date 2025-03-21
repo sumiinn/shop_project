@@ -6,26 +6,23 @@
 	/*position:relative;*/
 	background-color:#ffffff;
 	height:700px;
-	width:1900px;
-	margin-top:20px;
-
-	
+	width:1900;
+	margin-top:40px;	
 }
 
 #slideShowBox {
-	width:1900px;
+	width:1900;
 	height:700px;
 	overflow:hidden;
 }
 
 #slidePanel {
-	width:1900px;
+	width:90%;
 	height:960px;
 }
 
 .slideImage {
-	
-	float:left;
+	/*float:left;*/
 	width:1897px;
 	height:700px;
 	margin-left:2px;

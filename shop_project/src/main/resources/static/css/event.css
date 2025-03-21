@@ -25,10 +25,6 @@ section{
 	color: black;
 }
 
-#wrap a:hover{
-	text-decoration: underline;
-}
-
 #wrap .eventImg{
 	width: 100%;
 	height: auto;

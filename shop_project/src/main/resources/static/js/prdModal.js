@@ -56,5 +56,34 @@
 			$('#mdalSumCost').text(amount.toLocaleString()+'원');
 		}
 	});
+	
+	$('#modalCartInsertBtn').on('click', function(e){
+	    e.preventDefault();
+
+	    let prdNo = $('input[name="prdNo"]').val(); 
+	    let cartQty = $('#modalnumberCheck').val();        
+	    let cartColor = $('#selectedColor').val();    
+	    let cartSize = $('#selectedSize').val();      
+
+	    const cartData = {
+	        "prdNo": prdNo,
+	        "cartQty": cartQty,
+	        "cartColor": cartColor,
+	        "cartSize": cartSize
+	    };
+
+	    $.ajax({
+	        type: "POST",
+	        url: "/shop/cart",
+	        contentType: "application/json",
+	        data: JSON.stringify(cartData),
+	        success: function(response){
+	            location.href = '/cartList';
+	        },
+	        error: function(){
+	            alert("로그인이 필요합니다.");
+	        }
+	    });
+	});
  	
  });

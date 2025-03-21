@@ -5,7 +5,7 @@
     <script th:src="@{/js/prdModal.js}"></script>
 </head>
 <body>
-<form class="modal_popup" th:action="@{/shop/insertCart}" method="post">
+<form class="modal_popup">
     <div class="moreInfoF">
         <!-- 구매 및 사진 -->
         <div id="modalimg">
@@ -86,7 +86,7 @@
             </div>
 
             <div id="modalbuttonBar">
-                <button type="submit" class="modalshopBtn">장바구니 넣기</button>
+                <button type="button" class="modalCartBtn" id="modalCartInsertBtn">장바구니 넣기</button>
             </div>
         </div>
     </div>

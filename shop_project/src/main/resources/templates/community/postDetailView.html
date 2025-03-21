@@ -6,6 +6,7 @@
     <!-- head.html import -->
     <th:block th:replace="~{/layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/comm_detail.css}">
+    <script th:src="@{/js/community.js}"></script>
 </head>
 <body>
     <div id="wrap">
@@ -18,7 +19,7 @@
 					<ul>
 						<li><a th:href="@{/community/communityView}">ABOUT</a></li>
 						<li><a th:href="@{/community/noticeView}">NOTICE</a></li>
-						<li><a th:href="@{/community/faqView}">FAQ</a></li>
+						<!--  <li><a th:href="@{/community/faqView}">FAQ</a></li>-->
 						<li><a th:href="@{/community/reviewView}">REVIEW</a></li>
 					</ul>
 				</div>
@@ -37,10 +38,10 @@
 			    </div>
 				<div id="postButton">
 					<button id="postListBtn" th:onclick="|location.href='@{/community/noticeView}'|">목록</button>
-					<div th:if="${session.sid != null and session.mid != null}">
+					<span th:if="${session.sid != null and session.mid != null}">
 						<button id="postUpdateBtn" th:onclick="|location.href='@{/community/updatePostForm/{postNo}(postNo=${post.postNo})}'|">수정</button>
-						<button id="postDeleteBtn" th:onclick="|location.href='@{/community/deletePost/{postNo}(postNo=${post.postNo})}'|">삭제</button>
-					</div>
+						<button id="postDeleteBtn" th:data-postno="${post.postNo}">삭제</button>
+					</span>
 				</div>
 			</div>
         </div>

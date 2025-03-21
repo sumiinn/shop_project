@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shop_final.project.model.EventVO;
 import com.shop_final.project.service.EventService;
@@ -17,7 +17,7 @@ public class EventController {
 	EventService eventService;
 	
 	// 모든 이벤트 상품 출력(ALL)
-	@RequestMapping("/event")
+	@GetMapping("/event")
 	public String event(Model model) {		
 		ArrayList<EventVO> eventList = eventService.listAllEventProduct();
         model.addAttribute("eventList", eventList);
@@ -26,7 +26,7 @@ public class EventController {
 	}
 	
 	// 이벤트 카테고리 별 상품 출력
-	@RequestMapping("/event/eventCtgList/{eventCtgId}")
+	@GetMapping("/event/eventCtgList/{eventCtgId}")
 	public String eventCtgListView(@PathVariable String eventCtgId, Model model) {
 		ArrayList<EventVO> eventList = eventService.eventCtgListProduct(eventCtgId);
 		

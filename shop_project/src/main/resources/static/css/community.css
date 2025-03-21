@@ -163,16 +163,18 @@ h2 {
 .bt_wrap a {
     display: inline-block;
     min-width: 80px;
-    margin-left: 10px;
+    margin-left: 44%;;
     padding: 8px;
     border: 1px solid #000;
     border-radius: 2px;
     font-size: 12px;
     text-decoration: none; /* 밑줄 삭제 */
+    margin-top: 5%;
+    /*margin-right: 5%;;*/
 }
 
 .bt_wrap a:first-child {
-    margin-left: 0;
+   /* margin-left: 0;*/
 }
 
 .bt_wrap a.on {

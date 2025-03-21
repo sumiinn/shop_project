@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+section {
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+h4 {
+	text-align: center;
+}
+
+#joinTable {
+	margin: 0 auto;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+#joinTable th {
+	font-size: 13px;
+	font-weight: normal;
+	padding: 12px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+#joinTable td {
+	font-size: 13px;	
+	padding: 12px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+#joinTable input {
+	border: 1px solid #ccc;
+	padding: 4px;
+}
+
+#hp1, #hp2, #hp3 {
+	width: 10%;
+} 
+
+#searchZipBtn, #searchId {
+	cursor: pointer;
+}
+
+#submitBtn {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	width: 10%;
+    padding: 12px 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 11px;
+    margin-top: 2%;
+}

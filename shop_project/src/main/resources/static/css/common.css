@@ -3,7 +3,7 @@
 /* common.css */
 /* 모든 페이지에 공통 적용 */
 
-* {margin:0 auto;}
+/** {margin:0 auto;}*/
 
 /* 모든 컨텐츠를 포함하는  box */
 #pageArea {

@@ -7,9 +7,9 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop_final.project.model.CartVO;
 import com.shop_final.project.model.MemberVO;
@@ -24,7 +24,7 @@ public class CartController {
 	CartService cartService;
 	
 	// 장바구니 목록 보기 
-	@RequestMapping("/cartList")
+	@GetMapping("/cartList")
 	public String cartList(Model model, HttpSession session) {
 		// 회원에 해당하는 cartList 출력
 		String memId = (String)session.getAttribute("sid");
@@ -37,27 +37,7 @@ public class CartController {
 
 		return "shop/cartListView";
 	}
-	
-	// 장바구니에 상품 추가
-	@RequestMapping("/shop/insertCart")
-	public String insertCart(CartVO vo, HttpSession session) {
-		// 로그인 성공 시 
-		String memId = (String)session.getAttribute("sid");
-		vo.setMemId(memId);				
-		
-		// count 변수를 통한 동일 상품 확인
-		int count = cartService.checkPrdInCart(vo.getPrdNo(), memId);
-		
-		if(count == 0) { 
-			cartService.insertCart(vo);	// 장바구니에 추가		
-		} else { 
-			cartService.updateQtyInCart(vo); // 수량 변경
-		}
-		
-		// 포워딩을 통한 장바구니 목록 출력
-		return "redirect:/cartList";
-	}
-	
+	/*
 	// 장바구니에서 상품 삭제
 	@ResponseBody
 	@RequestMapping("/shop/deleteCart")
@@ -72,26 +52,7 @@ public class CartController {
 
 		return result;
 	}	
-	
-	// 장바구니 수량 업데이트
-	@ResponseBody
-	@RequestMapping("/shop/updateCart")
-	public int updateCart(@RequestParam int[] cartNo,
-                          @RequestParam int[] cartQty) {
-		int result = 0;
-		
-		// 수량 업데이트 (변경 버튼 누르면)
-	    for (int i = 0; i < cartNo.length; i++) {	    	
-	        CartVO vo = new CartVO();
-	        vo.setCartNo(cartNo[i]);
-	        vo.setCartQty(cartQty[i]);
-	        cartService.updateCart(vo);	        
-	        result = 1;
-	    }
-	    
-	    return result;	    
-	}
-	
+	*/
 	// 주문서 열기
 	@RequestMapping("/orderForm")
 	public String orderForm(@RequestParam("cartNo") int[] cartNo,

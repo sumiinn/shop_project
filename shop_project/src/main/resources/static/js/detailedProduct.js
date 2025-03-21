@@ -151,6 +151,36 @@ $(function() {
     document.getElementById('size').addEventListener('change', function() {
         document.getElementById('selectedSize').value = this.value;
     });     
+    
+    // 장바구니에 담기
+    $('#insertCart').on('click', function(e){
+    	e.preventDefault();
+    	
+    	let prdNo = $('input[name="prdNo"]').val(); 
+        let cartQty = $('#numberCheck').val();        
+        let cartColor = $('#selectedColor').val();    
+        let cartSize = $('#selectedSize').val();      
+        
+        const cartData = {
+        		"prdNo": prdNo,
+        		"cartQty": cartQty,
+        		"cartColor": cartColor,
+        		"cartSize": cartSize
+        }
+        
+        $.ajax({
+        	type: "POST",
+        	url: "/shop/cart",
+        	contentType: "application/json",
+        	data: JSON.stringify(cartData),
+        	success: function(response){
+        		location.href = '/cartList';
+        	},
+        	error: function(){
+        		alert("로그인이 필요합니다.");
+        	}
+        });
+    });
    
 	/* 장바구니에 상품 추가 */
 	/*

@@ -1,94 +1,121 @@
 @charset "UTF-8";
 
-body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #808080; 
-        }
+section {
+	display: flex;
+    justify-content: center; 
+    align-items: center;
+}
 
-        .login-container {
-            background-color: #FFFFFF; 
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-            text-align: center;
-            width: 300px; 
-        }
+.login-container {
+    width: 400px;
+    margin-top: 8%;
+}
 
-        .login-container form {
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-        }
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
 
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: 100%; 
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #808080; 
-            border-radius: 4px;
-            color: #000000; 
-            background-color: #FFFFFF; 
-            box-sizing: border-box; 
-        }
+.inputInfo {
+	display: flex;
+	border-bottom: 1px solid #ccc;
+}
 
-        .login-container h2 {
-            margin-bottom: 20px;
-            color: #000000; 
-        }
+.infoName {
+	width: 20%;
+	color: #929292;
+	margin-top: 4%;
+	font-size: 15px;
+}
 
-        .login-container label {
-            display: block;
-            margin: 0 auto 10px; 
-            width: calc(100% + 10px);
-            max-width: 50%;
-            color: #000000;
-        }
+#loginForm input {
+    border: none;
+   /* border-bottom: 1px solid #ccc;*/
+    padding: 15px 10px;
+    font-size: 16px;
+    margin-bottom: 0;
+    outline: none;
+    align-items: center;
+}
 
-        .login-container button {
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #000000; 
-            color: #FFFFFF; 
-            cursor: pointer;
-        }
+#loginForm input::placeholder {
+    color: #aaa;
+}
 
-        .login-container button#loginButton {
-            width: fit-content; 
-            padding: 10px 20px; 
-        }
+#loginForm p {
+	margin-top: -8%;
+	text-align: center;
+	font-size: 12px;
+	padding: 5%;
+	border-bottom: 1px solid #ccc;
+}
+#btnList {
+    margin-top: 10%;
+}
 
-        .login-container button:hover {
-            background-color: #404040; 
-        }
+.btnL {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 11px;
+}
 
-        .options {
-            margin-top: 20px;
-        }
+.btnL:hover {
+    background-color: #333;
+}
 
-        .options button {
-            background-color: #FFFFFF; 
-            color: #000000; 
-            border: none;
-            margin: 5px 0;
-            cursor: pointer;
-            padding: 0; 
-        }
+.options {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+}
 
-        .options button:hover {
-            color: #FFFFFF; 
-        }
-		#btnList{
-			display:flex;
-			justify-content: space-between;
-		}
-        .error {
-            color: #FF0000; 
-            margin-top: 10px;
-        }
+.options button {
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 80%;
+    cursor: pointer;
+}
+
+#loginBtn {
+	width: 47%;
+    padding: 12px 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 11px;
+}
+
+#findPwBtn {
+	width: 47%;
+    padding: 12px 0;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 11px;
+    margin-left: 4%;
+}
+
+#resultArea span{
+	font-size: 14px;
+}
+#errorMessage {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}

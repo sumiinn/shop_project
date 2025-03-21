@@ -38,7 +38,8 @@
 	
 	<!-- 아이디 찾기 -->
 	<select id="memIdFind" parameterType="string" resultType="string">
-  		SELECT memId FROM member WHERE memName=#{memName} AND memEmail=#{memEmail}
+  		SELECT memId FROM member 
+  		WHERE memName=#{memName} AND memEmail=#{memEmail}
   	</select>
   </mapper>
   	

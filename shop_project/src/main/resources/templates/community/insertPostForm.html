@@ -5,7 +5,7 @@
     <title>Insert title here</title>
     <!-- head.html import -->
     <th:block th:replace="~{/layout/head :: head}"></th:block>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/write.css}"> 
+    <link rel="stylesheet" type="text/css" th:href="@{/css/write.css}">
     <script th:src="@{/js/community.js}"></script>
 </head>
 <body>
@@ -26,27 +26,27 @@
 			</div>
 			<div class="content">
 				<h2>NOTICE</h2>
-				<form method="post" id="updatePostForm" enctype="multipart/form-data">
-					<input type="hidden" name="postNo" th:value="${post.postNo}">
+				<form method="post" id="insertPostForm" enctype="multipart/form-data">
+					<input type="hidden" name="commCtgId" value="2">
 					<div class="form-group">
 						<label for="title">제목</label> 
-						<input type="text" name="postTitle" th:value="${post.postTitle}">
+						<input type="text" name="postTitle" placeholder="제목 입력" required>
 					</div>
 					<div class="form-group">
 						<label for="writer">글쓴이</label> 
-						<input type="text" name="memId" th:value="${post.memId}" readonly>
+						<input type="text" name="memId" th:value="${memId}" required readonly>
 					</div>
 					<div class="form-group">
 						<label for="content">내용</label>
-						<textarea name="postDetail" th:text="${post.postDetail}"></textarea>
+						<textarea name="postDetail" placeholder="내용 입력" required></textarea>
 					</div>
 					<div class="form-group">
 						<label for="imgFile">이미지</label> 
 						<input type="file" name="postImgFiles" multiple="multiple">
 					</div>
 					<div class="bt_wrap">
-						<button type="submit" class="save-btn">수정</button>
-						<button type="reset" class="cancel-btn" th:onclick="|location.href='@{/community/noticeView}'|">취소</button>
+						<button type="submit" class="save-btn">등록</button>
+						<button type="reset" class="cancel-btn" th:onclick="|location.href='@{/community/postListView}'|">취소</button>
 					</div>
 				</form>
 			</div>

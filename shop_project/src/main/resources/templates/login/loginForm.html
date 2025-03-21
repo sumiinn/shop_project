@@ -10,26 +10,34 @@
 </head>
 <body>
     <div id="wrap">        
+         <!-- top.jsp import -->
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
         <section>
 			<div class="login-container">
 				<form id="loginForm">
-					<h2>로그인</h2>
-					<label for="username">아이디</label> <input type="text" id="username" name="username" required> <label for="password">비밀번호</label>
-					<input type="password" id="password" name="password" required>
-					<div id="btnList">
-						<button class="btnL" type="submit" id="loginButton">로그인</button>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-						<button class="btnL" type="button" id="backButton">돌아가기</button>
+					<div class="inputInfo">
+					    <div class="infoName">ID</div>
+					    <input type="text" id="username" name="username" required>
 					</div>
-					<p id="errorMessage" class="error"></p>
+					<div class="inputInfo">
+					    <div class="infoName">Password</div>
+					    <input type="password" id="password" name="password" required>
+					</div>
+					
+					<div id="btnList">
+						<button class="btnL" type="submit" id="loginButton">LOGIN</button>
+					</div>
+					<span id="errorMessage" class="error"></span>
 				</form>
 				<div class="options">
-					<button th:onclick="|location.href='@{/member/signUp}'|">회원가입</button>
+					<button th:onclick="|location.href='@{/member/joinForm}'|">회원가입</button>
 					<button th:onclick="|location.href='@{/member/findIdForm}'|">아이디 찾기</button>
 					<button th:onclick="return false;">비밀번호 찾기</button>
 				</div>
 			</div>
 		</section>
+		<!-- footer.html import -->
+        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
     </div>
 </body>
 </html>

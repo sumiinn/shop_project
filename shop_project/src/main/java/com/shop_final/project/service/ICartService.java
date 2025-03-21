@@ -10,11 +10,11 @@ import com.shop_final.project.model.OrderInfoVO;
 public interface ICartService {
 	// 장바구니
 	// 장바구니에 추가
-	public void insertCart(CartVO vo);
+	public boolean insertCart(CartVO vo);
 	// 동일 상품 존재 여부 확인
 	public int checkPrdInCart(String prdNo, String memId);
 	// 동일 상품이 존재하면 수량만 변경
-	public void updateQtyInCart(CartVO vo);
+	public boolean updateQtyInCart(CartVO vo);
 	// 장바구니 조회
 	public ArrayList<CartVO> cartList(String memId);
 	// 장바구니에서 상품 삭제

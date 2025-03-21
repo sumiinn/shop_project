@@ -19,8 +19,10 @@ public class CartService implements ICartService {
 	ICartDAO dao;
 
 	@Override
-	public void insertCart(CartVO vo) {
-		dao.insertCart(vo);
+	public boolean insertCart(CartVO vo) {
+		int result = dao.insertCart(vo);
+		
+		return result > 0;
 	}
 
 	@Override
@@ -33,8 +35,10 @@ public class CartService implements ICartService {
 	}
 
 	@Override
-	public void updateQtyInCart(CartVO vo) {
-		dao.updateQtyInCart(vo);
+	public boolean updateQtyInCart(CartVO vo) {
+		int result = dao.updateQtyInCart(vo);
+		
+		return result > 0;
 	}
 
 	@Override

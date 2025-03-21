@@ -16,12 +16,17 @@ function insertComment() {
 		return;
 	}
 	
-	let formData = $('#commentForm').serialize();
+	const commentData = {
+			postNo: $('input[name="postNo"]').val(),
+			memId: $('input[name="memId"]').val(),
+			content: content
+	}
 	
 	$.ajax({
 		type: "POST",
-		url: "/comment/insertComment",
-		data: formData,
+		url: "/comment",
+		contentType: "application/json",
+		data: JSON.stringify(commentData),
 		success: function(response) {
 			if(response.status === "success") {
 				// 폼 초기화
@@ -45,7 +50,7 @@ function loadComment() {
 	
 	$.ajax({
 		type: "GET",
-		url: "/comment/loadComment/" + postNo,
+		url: "/comment/" + postNo,
 		dataType: "json",
 		success: function(comments){
 			let commentHtml = "";
@@ -99,11 +104,10 @@ function saveEditComment(commentNo) {
 	let content = $("#editContent" + commentNo).val();
 	
 	$.ajax({
-		type: "POST",
-		url: "/comment/updateComment",
-		data: {"commentNo": commentNo,
-		       "content": content
-		},
+		type: "PUT",
+		url: `/comment/${commentNo}`,
+		contentType: "application/json",
+		data: JSON.stringify({"content" : content}),
 	    success: function(response) {
 			if(response.status == "success") {				
 	    		loadComment();
@@ -127,8 +131,7 @@ function deleteComment(commentNo) {
 	if(confirm("댓글을 삭제하시겠습니까?")) {
 		$.ajax({
 			type: "DELETE",
-			url: "/comment/deleteComment",
-			data: {"commentNo": commentNo},
+			url: `/comment/${commentNo}`,
 			success: function(response) {
 				if(response.status == "success") {
 					loadComment();

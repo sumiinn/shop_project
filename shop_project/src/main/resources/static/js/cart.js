@@ -36,6 +36,7 @@ $(function(){
 	
 	// 장바구니 수량 업데이트 (버튼 클릭 시 수행)
     $('.update').on('click', function() {
+    	let updateList = [];
     
        // 주문수량 수정 시
        $.each($('.quantity'), function(i) {        
@@ -72,25 +73,20 @@ $(function(){
            let cartNo = $(this).siblings('input[name="cartNo"]').val(); // name="cartNo"인 hidden input 가져오기
            let cartQty = $(this).val();
            
-           cartNos.push(cartNo);
-           cartQtys.push(cartQty);
+           updateList.push({
+        	   "cartNo": cartNo,
+               "cartQty": cartQty
+           });          
        });
 
        // 서버로 전송
        $.ajax({
-           type: "post",
-           url: "/shop/updateCart",
-           data: {
-               "cartNo": cartNos,
-               "cartQty": cartQtys
-           },
-           dataType: 'text', /* 요청하는 데이터 타입 (반환 타입) */
-           success: function(result) {
-               if (result == 1) {          
-                   location.href = "/cartList"; // 장바구니 페이지로 이동
-               } else {
-                   alert('실패');
-               }
+           type: "PUT",
+           url: "/shop/cart",
+           contentType: "application/json",
+           data: JSON.stringify(updateList),
+           success: function(response) {
+        	   location.href = "/cartList";
            },
            error: function() {
                alert('실패');
@@ -111,23 +107,22 @@ $(function(){
        // 체크 여부 확인 : 하나라도 체크하면 true, 아무 것도 체크하지 않으면 false
 	   let checked = $('.itemCheckbox').is(':checked');
        if(checked){
-         if(confirm('상품을 장바구니에서 삭제하시겠습니까?')){
-		  // 체크된 체크박스의 cartNo를 배열에 추가
-	 	  let checkArr = new Array();
+         if(confirm('상품을 장바구니에서 삭제하시겠습니까?')){        	 
+		    // 체크된 체크박스의 cartNo를 배열에 추가
+	 	    let checkArr = [];
+	 	    
 	 		$('.itemCheckbox:checked').each(function() {
 	 			checkArr.push($(this).val()); 
 	 		});	
  				
  			// 서버로 전송
  			$.ajax({
- 				type:"post",
-				url:"/shop/deleteCart", 
-			 	data : {"chkbox":checkArr}, /* 컨트롤러에서 받는 이름 chkbox  */
-			 	dataType:'text', /* 요청하는 데이터 타입 (반환 타입) */
-			 	success:function(result) {
-			 		if(result == 1) {				 					
-			 			location.href= "/cartList";
-			 		}
+ 				type:"DELETE",
+				url:"/shop/cart", 
+				contentType: "application/json",
+			 	data : JSON.stringify(checkArr), 
+			 	success:function(response) {
+ 					location.href= "/cartList";
 			 	},
 			 	error:function() {
 			 		alert("실패");

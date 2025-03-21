@@ -10,25 +10,37 @@
 </head>
 <body>
     <div id="wrap">           
+        <th:block th:replace="~{/layout/top :: top}"></th:block>
         <section>
 			<div class="login-container">
-				<form id="loginForm" action="/member/idView">
-					<h2>아이디 찾기</h2>
-					<label for="username">이름</label> 
-					<input type="text" id="memName" name="memName" required> 
-					<label for="password">이메일</label>
-					<input type="text" id="memEmail" name="memEmail" required>
-					<div id="btnList">
-						<button class="btnL" type="button" id="loginButton">아이디 찾기</button>
+				<form id="loginForm">
+					<h4>아이디 찾기</h4>
+					<div class="inputInfo">
+					    <div class="infoName">이름</div>
+					    <input type="text" id="memName" name="memName" required>
 					</div>
-					<p id="errorMessage" class="error"></p>
+					<div class="inputInfo">
+					    <div class="infoName">이메일</div>
+					    <input type="text" id="memEmail" name="memEmail" required>
+					</div>
+
+					<div id="btnList">
+						<button class="btnL" type="button" id="loginButton">확인</button>
+					</div><br>
+					<div id="resultArea" style="margin-top: 20px; display: none;">
+                        <p>다음 정보로 가입된 아이디가 있습니다.</p>
+                        <span>아이디: </span><span id="resultMemId"></span>
+                    </div>
+					<span id="errorMessage" class="error"></span>
 				</form>
 				<div class="options">
-					<button th:onclick="|location.href='@{/member/signUp}'|">회원가입</button>
+				    <button th:onclick="|location.href='@{/member/loginForm}'|">로그인</button>
+					<button th:onclick="|location.href='@{/member/joinForm}'|">회원가입</button>
 					<button th:onclick="return false;">비밀번호 찾기</button>
 				</div>
 			</div>
-		</section>               
+		</section>       
+		<th:block th:replace="~{/layout/footer :: footer}"></th:block>        
     </div>
 </body>
 </html>
