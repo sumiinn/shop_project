@@ -1,6 +1,7 @@
 /**
  * 
  */
+
  $(function() {
  	let mdalP = Number($('#modalPrice')[0].dataset.price);
  	let modalPrdSelect = new Object();
