@@ -19,7 +19,7 @@
   	
   	<!-- 카테고리 상품 조회 -->
   	<select id="ctgListProduct" parameterType="string" resultType="hashmap">
-  		SELECT * FROM product WHERE mcId=#{mcId} ORDER BY saleRate;
+  		SELECT * FROM product WHERE mcId=#{mcId} ORDER BY prdNo ASC;
   	</select>
   	
   	<!-- 서브 카테고리 -->

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
     <script th:src="@{/js/login.js}"></script>
 </head>
 <body>
     <div id="wrap">        
          <!-- top.jsp import -->
-        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <th:block th:replace="~{layout/top :: top}"></th:block>
         <section>
 			<div class="login-container">
 				<form id="loginForm">
@@ -37,7 +37,7 @@
 			</div>
 		</section>
 		<!-- footer.html import -->
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>
     </div>
 </body>
 </html>

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/write.css}"> 
     <script th:src="@{/js/community.js}"></script>
 </head>
 <body>
     <div id="wrap">
         <!-- top.html import -->
-        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <th:block th:replace="~{layout/top :: top}"></th:block>
 		<div class="container">
 			<div id="containerLeft">
 				<h1>COMMUNITY</h1>
@@ -53,7 +53,7 @@
 		</div>
 
 		<!-- footer.html import -->
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>
     </div>
 </body>
 </html>

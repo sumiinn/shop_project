@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/insertTable.css}">
     <script th:src="@{/js/insertPrd.js}"></script>
 </head>
 <body>
     <div id="wrap">
         <!-- top.html import -->
-        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <th:block th:replace="~{layout/top :: top}"></th:block>
         
         <section>
             <h3>상품 추가</h3>
@@ -114,7 +114,7 @@
         </section>
         
         <!-- footer.html import -->
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>
     </div>
 </body>
 </html>

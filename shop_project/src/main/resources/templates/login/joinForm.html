@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <script th:src="@{http://dmaps.daum.net/map_js_init/postcode.v2.js}"></script>
     <script th:src="@{/js/join.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/join.css}">
 </head>
 <body>
     <div id="wrap">
-        <th:block th:replace="~{/layout/top :: top}"></th:block> 
+        <th:block th:replace="~{layout/top :: top}"></th:block> 
         <section>
             <h4>회원가입</h4>
 			<form id="signupForm">
@@ -61,7 +61,7 @@
 				<button id="submitBtn" type="button">회원가입</button>
 		    </form>
 		</section>
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>   
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>   
     </div>
 </body>
 </html>

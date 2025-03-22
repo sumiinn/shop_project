@@ -91,7 +91,8 @@ public class CommunityRestController {
 	// 파일 저장
 	private List<String> saveFile(List<MultipartFile> files) throws IOException {
 		// 파일 저장 경로 생성
-		String uploadPath = "D:/springWorkspace/semi_project_images/upload/";
+		//String uploadPath = "D:/springWorkspace/semi_project_images/upload/";
+		String uploadPath = "/home/ubuntu/semi_project_images/upload/";
 
 		// 여러 개의 파일명 저장할 리스트 생성
 		List<String> savedFileNameList = new ArrayList<String>();

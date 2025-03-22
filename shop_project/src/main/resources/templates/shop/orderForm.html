@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/orderForm.css}">
     <script th:src="@{http://dmaps.daum.net/map_js_init/postcode.v2.js}"></script>
     <script th:src="@{/js/searchZip.js}"></script>
@@ -12,7 +12,7 @@
 <body>
     <div id="wrap">
         <!-- top.html import -->
-        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <th:block th:replace="~{layout/top :: top}"></th:block>
         
         <section>
 			<form method="post" th:action="@{/orderComplete}">
@@ -145,7 +145,7 @@
 		</section>
         
         <!-- footer.html import -->
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>
     </div>
 </body>
 </html>

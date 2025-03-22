@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>REVIEW</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <script th:src="@{/js/comment.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/comm_detail.css}">   
 </head>
 <body>
     <div id="wrap">
         <!-- top.html import -->
-        <th:block th:replace="~{/layout/top :: top}"></th:block>
+        <th:block th:replace="~{layout/top :: top}"></th:block>
         <input type="hidden" name="sid" th:value="${session.sid}">
 		<input type="hidden" name="postNo" th:value="${review.postNo}">
 		<div class="container">
@@ -73,7 +73,7 @@
 			</div>
         </div>
 		<!-- footer.html import -->
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>
     </div>
 </body>
 </html>

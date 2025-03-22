@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <!-- head.html import -->
-    <th:block th:replace="~{/layout/head :: head}"></th:block>
+    <th:block th:replace="~{layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/categori.css}">
     
 </head>
 <body>
     <div id="wrap">
         <!-- top.html import -->
-        <th:block th:replace="~{/layout/top :: top}"></th:block>        
+        <th:block th:replace="~{layout/top :: top}"></th:block>        
         <section>
 			<div id="categoriMain">
 				<br>
@@ -71,7 +71,7 @@
 		</section>
         
         <!-- footer.html import -->
-        <th:block th:replace="~{/layout/footer :: footer}"></th:block>
+        <th:block th:replace="~{layout/footer :: footer}"></th:block>
     </div>
     <script th:src="@{/js/categori.js}"></script>
 </body>
