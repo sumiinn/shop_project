@@ -47,6 +47,7 @@ function insertComment() {
 function loadComment() {
 	let postNo = $('input[name="postNo"]').val();
 	let userId = $('input[name="sid"]').val();
+	let adminId = $('input[name="adminId"]').val();
 	
 	$.ajax({
 		type: "GET",
@@ -72,6 +73,10 @@ function loadComment() {
 		                <button class="commentBtn" id="updateComBtn" onclick="showEditBox(${comment.commentNo})">수정</button>
 		                <button class="commentBtn" id="deleteComBtn" onclick="deleteComment(${comment.commentNo})">삭제</button>		              
 			        `;
+				} else if (adminId) {
+					commentHtml += `								           
+							<button class="commentBtn" id="deleteComBtn" onclick="deleteComment(${comment.commentNo})">삭제</button>		              
+						`;
 				}
 				
 				commentHtml += `</div>`;

@@ -53,6 +53,9 @@
 						<button id="postUpdateBtn" th:onclick="|location.href='@{/community/updatePostForm/{postNo}(postNo=${review.postNo})}'|">수정</button>
 						<button id="postDeleteBtn" th:onclick="|location.href='@{/community/deletePost/{postNo}(postNo=${review.postNo})}'|">삭제</button>
 					</th:block>
+					<th:block th:if="${session.mid != null}">
+                        <button id="postDeleteBtn" th:onclick="|location.href='@{/community/deletePost/{postNo}(postNo=${review.postNo})}'|">삭제</button>
+                    </th:block>
 				</div>
 
 				<!-- 댓글 -->
@@ -62,6 +65,7 @@
 						<div id="commentBox">
 							회원명 <input type="text" id="commentName" name="memId" th:value="${session.sid}" readonly> 
 							<input type="hidden" name="postNo" th:value="${review.postNo}">
+							<input type="hidden" name="adminId" th:value="${session.mid}">
 							<div id="insertComment">
 								<textarea id="commentContent" name="content" placeholder="댓글을 입력해주세요." required></textarea>
 								<button id="contentBtn" type="button" th:onclick="|insertComment()|">등록</button>

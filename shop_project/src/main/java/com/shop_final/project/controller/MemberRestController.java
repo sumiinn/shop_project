@@ -26,8 +26,7 @@ public class MemberRestController {
 	public ResponseEntity<String> loginCheck(@RequestBody HashMap<String, Object> param,
 							                 HttpSession session) {
 		String mangerC = memberService.managerCheck((String)param.get("id"));
-		String result = memberService.loginCheck(param);
-		
+		String result = memberService.loginCheck(param);	
 		
 		if(result.equals("success")) {
 			session.setAttribute("sid", param.get("id"));

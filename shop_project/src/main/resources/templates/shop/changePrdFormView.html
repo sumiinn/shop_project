@@ -6,7 +6,7 @@
     <!-- head.html import -->
     <th:block th:replace="~{layout/head :: head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/insertTable.css}">
-    <script th:src="@{/js/changePrd.js}"></script>
+    <script th:src="@{/js/admin.js}"></script>
 </head>
 <body>
     <div id="wrap">
@@ -17,11 +17,11 @@
 			<h3>상품 정보 변경</h3>
 			<hr>
 			<br>
-			<form id="insertPrdForm" th:action="@{/product/changePrd}">
+			<form id="updatePrdForm">
 				<table>
 					<tr>
 						<th>상품번호</th>
-						<td><input id="prdNo" name="prdNo" type="text">&nbsp;<input type="button" id="load" value="상품 불러오기" /></td>
+						<td><input id="prdNo" name="prdNo" type="text">&nbsp;&nbsp;&nbsp;<input type="button" id="load" value="상품 불러오기" /></td>
 					</tr>
 					<tr>
 						<th>상품명</th>
@@ -96,8 +96,8 @@
 				</table>
 				<br>
 				<div id="btnDiv">
-					<input class="tableBtn" type="submit" value="등록"> 
-					<input class="tableBtn" type="reset" value="초기화">
+					<input class="tableBtn" id="submitBtn" type="submit" value="등록"> 
+					<input class="tableBtn" id="resetBtn" type="reset" value="초기화">
 				</div>
 			</form>
 			<hr>

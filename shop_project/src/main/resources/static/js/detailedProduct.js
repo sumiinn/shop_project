@@ -128,18 +128,6 @@ $(function() {
 		}
 	});
 	
-	/* 상품 삭제 버튼 */
-	$('#deleteBtn').click(function(){
-		let deletcheck = confirm("상품을 삭제 하시겠습니까?");
-		
-		if(deletcheck){
-		
-			let prdNo = $(this)[0].dataset.prdno;
-			let mcId = $(this)[0].dataset.mcid;
-			location.href = "/product/deleteProduct/"+prdNo
-		}	
-	})
-	
 	/* 색상, 사이즈 받아와서 장바구니에 전달  */
 	document.querySelectorAll('.colorEx').forEach(function(element) {
         element.addEventListener('click', function() {

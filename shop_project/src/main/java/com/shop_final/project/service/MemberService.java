@@ -19,14 +19,16 @@ public class MemberService implements IMemberService {
 	@Autowired
 	PasswordEncoder pwdEncoder;
 	
-	// 로그인 체크
+	// 로그인 체크	
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {
 		String encodedPwd = dao.loginCheck(map);
 		String result = "fail";
+		
 		if(encodedPwd != null && pwdEncoder.matches((String)map.get("pwd"), encodedPwd)){
 			result ="success";
 		}
+		
 		return result;
 	}
 	

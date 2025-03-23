@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop_final.project.model.CommunityVO;
 import com.shop_final.project.model.ProductVO;
@@ -51,59 +50,6 @@ public class ProductController {
 		model.addAttribute("subList", subList);
 		
 		return "shop/productCategoryView";
-	}
-	
-	/* 상품 추가 화면(관리자용) */
-	@RequestMapping("/product/insertPrdForm")
-	public String insertPrdForm(Model model) {
-		return "shop/insertPrdFormView";
-	}
-	/* 상품 변경 화면(관리자용) */
-	@RequestMapping("/product/changePrdForm")
-	public String changePrdForm() {
-		return "shop/changePrdFormView";
-	}
-	
-	/* 상품 추가(관리자용) */
-	@RequestMapping("/product/insertPrd")
-	public String insertPrd(ProductVO vo){
-		prdService.insertProduct(vo);
-		return "redirect:/";
-	}
-	
-	/* 상품 변경(관리자용) */
-	@RequestMapping("/product/changePrd")
-	public String changetPrd(ProductVO vo){
-		prdService.changeProduct(vo);
-		return "redirect:/";
-	}
-	
-	/* 상품 삭제 */
-	@RequestMapping("/product/deleteProduct/{prdNo}")
-	public String deletePrd(@PathVariable String prdNo) {
-		String mcId = prdService.prdInfoView(prdNo).getMcId();
-		prdService.productDelete(prdNo);
-		return "redirect:/product/productCtgList/"+mcId;
-	}
-	
-	/* 상품번호 중복체크 */
-	@ResponseBody
-	@RequestMapping("/product/prdNoCheck")
-	public String prdNoCheck(@RequestParam("prdNo") String prdNo) {
-		String prdNo_result=prdService.prdNoCheck(prdNo);
-		String result = "available";
-		if(prdNo_result != null) {
-			result = "not_available";
-		}	
-		return result;
-	}
-	/* 상품 정보 변경 */
-	@ResponseBody
-	@RequestMapping("/product/prdDataLoad")
-	public ProductVO prdDataLoad(@RequestParam("prdNo") String prdNo) {
-		ProductVO prdVO=prdService.prdInfoView(prdNo);
-	
-		return prdVO;
 	}
 	
 	/* 상품페이지 이동 */

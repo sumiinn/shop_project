@@ -16,7 +16,7 @@ public class WebSecurityConfig {
 		return new BCryptPasswordEncoder();
 		// BCrypt라는 해시 함수를 이용하여 패스워드를 암호화하는 구현체 
 	}
-	// 다음 코드 추가하지 않으면 스프링 기본 로그인 화면 출력
+	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
