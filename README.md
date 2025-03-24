@@ -79,11 +79,12 @@
     
   ![코드 구조 drawio (3)](https://github.com/user-attachments/assets/4e4a6224-5311-431f-b583-352ec23061e8)
 
-  - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
+  - [CartController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/CartController.java)
+  - [CartRestController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/CartRestController.java)
   - CartService<br>
-    : [CartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/CartService.java) implements [ICartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/ICartService.java)
-  - [ICartDAO](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/dao/ICartDAO.java)
-  - [CartMapper](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/resources/mappers/CartMapper.xml)
+    : [CartService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/CartService.java) implements [ICartService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/ICartService.java)
+  - [ICartDAO](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/dao/ICartDAO.java)
+  - [CartMapper](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/resources/mappers/CartMapper.xml)
   </details>
 
   #### 🛠 기능 상세
@@ -123,11 +124,19 @@
   ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/be36b601-01ad-4ff9-a3ef-14c85af20fa8)
 
 
-  - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
-  - CartService<br>
-    : [CartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/CartService.java) implements [ICartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/ICartService.java)
-  - [ICartDAO](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/dao/ICartDAO.java)
-  - [CartMapper](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/resources/mappers/CartMapper.xml)
+  - [CommunityController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/CommunityController.java)
+  - [CommunityRestController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/CommunityRestController.java)
+  - CommunityService<br>
+    : [CommunityService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/CommunityService.java) implements [ICommunityService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/ICommunityService.java)
+  - [ICommunityDAO](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/dao/ICommunityDAO.java)
+  - [CommunityMapper](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/resources/mappers/CommunityMapper.xml)
+
+  - [CommentController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/CommentController.java)
+  - [CommentRestController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/CommentRestController.java)
+  - CommentService<br>
+    : [CommentService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/CommentService.java) implements [ICommentService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/ICommentService.java)
+  - [ICommentDAO](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/dao/ICommentDAO.java)
+  - [CommentMapper](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/resources/mappers/CommentMapper.xml)
   </details>
 
   #### 🛠 기능 상세
@@ -153,11 +162,11 @@
     
   ![코드 구조 drawio (4)](https://github.com/user-attachments/assets/8da73944-2ffc-4979-91cb-67f37e22b807)
 
-  - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
-  - CartService<br>
-    : [CartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/CartService.java) implements [ICartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/ICartService.java)
-  - [ICartDAO](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/dao/ICartDAO.java)
-  - [CartMapper](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/resources/mappers/CartMapper.xml)
+  - [EventController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/EventController.java)
+  - EventService<br>
+    : [EventService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/EventService.java) implements [IEventService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/IEventService.java)
+  - [IEventDAO](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/dao/IEventDAO.java)
+  - [EventMapper](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/resources/mappers/EventMapper.xml)
   </details>
 
   ### ✅ 관리자 기능
@@ -169,11 +178,12 @@
     
   ![코드 구조 drawio (5)](https://github.com/user-attachments/assets/9db404c2-3849-4178-8606-0d479437968f)
 
-  - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
-  - CartService<br>
-    : [CartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/CartService.java) implements [ICartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/ICartService.java)
-  - [ICartDAO](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/dao/ICartDAO.java)
-  - [CartMapper](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/resources/mappers/CartMapper.xml)
+  - [AdminController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/AdminController.java)
+  - [AdminRestController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/AdminRestController.java)
+  - ProductService<br>
+    : [ProductService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/ProductService.java) implements [IProductService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/IProductService.java)
+  - [IProductDAO](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/dao/IProductDAO.java)
+  - [ProductMapper](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/resources/mappers/ProductMapper.xml)
   </details>
 
   #### 🛠 기능 상세
