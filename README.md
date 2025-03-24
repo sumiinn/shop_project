@@ -31,15 +31,17 @@
 
   #### 🗂 구조 다이어그램
   <details>
-  <summary>📌 구조 살펴보기</summary> 
+  <summary>📌 구조 살펴보기</summary><br> 
     
-  ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/b588400c-05ce-4308-b216-178d498e6e8f)
+  ![코드 구조 drawio](https://github.com/user-attachments/assets/423367a4-19f5-47b2-a5e3-b1bf11a9879c)
 
-  - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
-  - CartService<br>
-    : [CartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/CartService.java) implements [ICartService](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/service/ICartService.java)
-  - [ICartDAO](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/dao/ICartDAO.java)
-  - [CartMapper](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/resources/mappers/CartMapper.xml)
+
+  - [MemberController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/MemberController.java)
+  - [MemberRestController](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/controller/MemberRestController.java)
+  - MemberService<br>
+    : [MemberService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/MemberService.java) implements [IMemberService](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/service/IMemberService.java)
+  - [IMemberDAO](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/java/com/shop_final/project/dao/IMemberDAO.java)
+  - [MemberMapper](https://github.com/sumiinn/shop_project/blob/main/shop_project/src/main/resources/mappers/MemberMapper.xml)
   </details>
 
   #### 🛠 기능 상세
@@ -73,9 +75,9 @@
 
   #### 🗂 구조 다이어그램
   <details>
-  <summary>📌 구조 살펴보기</summary> 
+  <summary>📌 구조 살펴보기</summary><br> 
     
-  ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/b588400c-05ce-4308-b216-178d498e6e8f)
+  ![코드 구조 drawio (3)](https://github.com/user-attachments/assets/4e4a6224-5311-431f-b583-352ec23061e8)
 
   - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
   - CartService<br>
@@ -115,9 +117,11 @@
 
   #### 🗂 구조 다이어그램
   <details>
-  <summary>📌 구조 살펴보기</summary> 
+  <summary>📌 구조 살펴보기</summary><br> 
     
-  ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/b588400c-05ce-4308-b216-178d498e6e8f)
+  ![코드 구조 drawio (2)](https://github.com/user-attachments/assets/e74bba2a-b44a-48ef-9ae0-9419ebc3c683)  
+  ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/be36b601-01ad-4ff9-a3ef-14c85af20fa8)
+
 
   - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
   - CartService<br>
@@ -145,9 +149,9 @@
 
   #### 🗂 구조 다이어그램
   <details>
-  <summary>📌 구조 살펴보기</summary> 
+  <summary>📌 구조 살펴보기</summary><br> 
     
-  ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/b588400c-05ce-4308-b216-178d498e6e8f)
+  ![코드 구조 drawio (4)](https://github.com/user-attachments/assets/8da73944-2ffc-4979-91cb-67f37e22b807)
 
   - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
   - CartService<br>
@@ -161,9 +165,9 @@
 
   #### 🗂 구조 다이어그램
   <details>
-  <summary>📌 구조 살펴보기</summary> 
+  <summary>📌 구조 살펴보기</summary><br> 
     
-  ![코드 구조 drawio (1)](https://github.com/user-attachments/assets/b588400c-05ce-4308-b216-178d498e6e8f)
+  ![코드 구조 drawio (5)](https://github.com/user-attachments/assets/9db404c2-3849-4178-8606-0d479437968f)
 
   - [CartController](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/java/com/spring_boot_final/metasumer/controller/CartController.java)
   - CartService<br>
