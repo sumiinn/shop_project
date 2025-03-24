@@ -68,8 +68,8 @@
   </details>
 
   ### ✅ 상품 구매 기능
- <img src="https://github.com/user-attachments/assets/ca3a0061-5838-4d21-a87f-206258335afb" width="390" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/user-attachments/assets/e3046976-5a4f-44d0-a911-b052fb22c416" width="390"  height="250">
+ <img src="https://github.com/user-attachments/assets/af39d7a2-2535-420b-9d87-2c1cf1959653" width="410" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/user-attachments/assets/802c4ea8-a454-47ce-9596-34f7e19acbd1" width="370"  height="250">
 
   #### 🗂 구조 다이어그램
   <details>
@@ -110,8 +110,8 @@
   </details>
 
   ### ✅ 커뮤니티
- <img src="https://github.com/user-attachments/assets/ca3a0061-5838-4d21-a87f-206258335afb" width="390" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/user-attachments/assets/e3046976-5a4f-44d0-a911-b052fb22c416" width="390"  height="250">
+ <img src="https://github.com/user-attachments/assets/661e7cdb-ff9c-43a2-91b6-71d7a24ccb16" width="390" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/user-attachments/assets/ed71bde0-4b14-4ce6-a7de-ac20bb8f8bae" width="390"  height="250">
 
   #### 🗂 구조 다이어그램
   <details>
@@ -140,8 +140,8 @@
   </details>
 
   ### ✅ 이벤트
- <img src="https://github.com/user-attachments/assets/ca3a0061-5838-4d21-a87f-206258335afb" width="390" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/user-attachments/assets/e3046976-5a4f-44d0-a911-b052fb22c416" width="390"  height="250">
+ <img src="https://github.com/user-attachments/assets/75f20f9d-6c11-4d38-9300-72d5f802b086" width="390" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/user-attachments/assets/75d78851-4dc4-48d8-a541-224941cd5f9b" width="390"  height="250">
 
   #### 🗂 구조 다이어그램
   <details>
@@ -170,8 +170,7 @@
   </details>
 
   ### ✅ 관리자 기능
- <img src="https://github.com/user-attachments/assets/ca3a0061-5838-4d21-a87f-206258335afb" width="390" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/user-attachments/assets/e3046976-5a4f-44d0-a911-b052fb22c416" width="390"  height="250">
+ <img src="https://github.com/user-attachments/assets/0d120c9b-afad-48f3-b9e5-2c6650148cf1" width="450"  height="250">
 
   #### 🗂 구조 다이어그램
   <details>
