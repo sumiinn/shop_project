@@ -156,19 +156,6 @@
   - [CartMapper](https://github.com/fullstack-final-project/project-final-metasumer/blob/develop/spring_boot_project_final/src/main/resources/mappers/CartMapper.xml)
   </details>
 
-  #### 🛠 기능 상세
-  <details>
-  <summary>이벤트 페이지</summary><br> 
-
-  [기능 설명]
-  
-
-  [주요 코드]
-  ```java
-  
-  ```
-  </details>
-
   ### ✅ 관리자 기능
  <img src="https://github.com/user-attachments/assets/0d120c9b-afad-48f3-b9e5-2c6650148cf1" width="450"  height="250">
 
